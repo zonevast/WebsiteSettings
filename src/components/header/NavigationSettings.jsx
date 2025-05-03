@@ -1,261 +1,271 @@
 "use client";
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import { 
-  Button, 
-  Switch, 
-  Card, 
+import {
+  Button,
+  Switch,
+  Card,
   CardBody,
   Input,
   Select,
   SelectItem,
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Tooltip
+  Tooltip,
 } from "@nextui-org/react";
-import { 
-  Plus, 
-  Trash2, 
-  ChevronUp, 
-  ChevronDown, 
-  Edit2, 
-  Eye, 
+import {
+  Plus,
+  Trash2,
+  ChevronUp,
+  ChevronDown,
+  Edit2,
+  Eye,
   EyeOff,
-  ExternalLink
+  ExternalLink,
 } from "lucide-react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const NavigationSettings = ({ settings, updateSettings }) => {
   const t = useTranslations("HeaderSettingsPage.navigationSettings");
   const [isAddingItem, setIsAddingItem] = useState(false);
-  const [newItem, setNewItem] = useState({ label: "", url: "", isExternal: false });
+  const [newItem, setNewItem] = useState({
+    label: "",
+    url: "",
+    isExternal: false,
+  });
   const [editingItemId, setEditingItemId] = useState(null);
-  
+
   const handleAddItem = () => {
-    if (newItem.label && newItem.url) {
-      const updatedNavItems = [
-        ...settings.navigationItems,
-        { 
-          id: Date.now().toString(), 
-          ...newItem,
-          isVisible: true
-        }
-      ];
-      updateSettings({ navigationItems: updatedNavItems });
-      setNewItem({ label: "", url: "", isExternal: false });
-      setIsAddingItem(false);
-    }
+    if (!newItem.label || !newItem.url) return;
+    const next = [
+      ...settings.navigationItems,
+      { id: Date.now().toString(), ...newItem, isVisible: true },
+    ];
+    updateSettings({ navigationItems: next });
+    setNewItem({ label: "", url: "", isExternal: false });
+    setIsAddingItem(false);
   };
-  
-  const handleRemoveItem = (itemId) => {
-    const updatedNavItems = settings.navigationItems.filter(item => item.id !== itemId);
-    updateSettings({ navigationItems: updatedNavItems });
-  };
-  
-  const handleToggleItemVisibility = (itemId) => {
-    const updatedNavItems = settings.navigationItems.map(item => {
-      if (item.id === itemId) {
-        return { ...item, isVisible: !item.isVisible };
-      }
-      return item;
+
+  const handleRemoveItem = (id) =>
+    updateSettings({
+      navigationItems: settings.navigationItems.filter((i) => i.id !== id),
     });
-    updateSettings({ navigationItems: updatedNavItems });
-  };
-  
-  const handleMoveItem = (itemId, direction) => {
-    const currentIndex = settings.navigationItems.findIndex(item => item.id === itemId);
+
+  const handleToggleItemVisibility = (id) =>
+    updateSettings({
+      navigationItems: settings.navigationItems.map((i) =>
+        i.id === id ? { ...i, isVisible: !i.isVisible } : i
+      ),
+    });
+
+  const handleMoveItem = (id, dir) => {
+    const idx = settings.navigationItems.findIndex((i) => i.id === id);
     if (
-      (direction === "up" && currentIndex === 0) || 
-      (direction === "down" && currentIndex === settings.navigationItems.length - 1)
-    ) {
+      (dir === "up" && idx === 0) ||
+      (dir === "down" && idx === settings.navigationItems.length - 1)
+    )
       return;
-    }
-    
-    const newIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
-    const updatedNavItems = [...settings.navigationItems];
-    const [movedItem] = updatedNavItems.splice(currentIndex, 1);
-    updatedNavItems.splice(newIndex, 0, movedItem);
-    
-    updateSettings({ navigationItems: updatedNavItems });
+    const arr = Array.from(settings.navigationItems);
+    const [moved] = arr.splice(idx, 1);
+    arr.splice(dir === "up" ? idx - 1 : idx + 1, 0, moved);
+    updateSettings({ navigationItems: arr });
   };
-  
+
   const handleEditItem = (item) => {
     setEditingItemId(item.id);
     setNewItem({
       label: item.label,
       url: item.url,
-      isExternal: item.isExternal
+      isExternal: item.isExternal,
     });
+    setIsAddingItem(true);
   };
-  
+
   const handleUpdateItem = () => {
-    if (newItem.label && newItem.url) {
-      const updatedNavItems = settings.navigationItems.map(item => {
-        if (item.id === editingItemId) {
-          return { 
-            ...item, 
-            label: newItem.label, 
-            url: newItem.url,
-            isExternal: newItem.isExternal
-          };
-        }
-        return item;
-      });
-      
-      updateSettings({ navigationItems: updatedNavItems });
-      setNewItem({ label: "", url: "", isExternal: false });
-      setEditingItemId(null);
-    }
+    if (!newItem.label || !newItem.url) return;
+    updateSettings({
+      navigationItems: settings.navigationItems.map((i) =>
+        i.id === editingItemId ? { ...i, ...newItem } : i
+      ),
+    });
+    setEditingItemId(null);
+    setNewItem({ label: "", url: "", isExternal: false });
+    setIsAddingItem(false);
   };
-  
+
   const handleDragEnd = (result) => {
     if (!result.destination) return;
-    
-    const items = Array.from(settings.navigationItems);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    
-    updateSettings({ navigationItems: items });
+    const arr = Array.from(settings.navigationItems);
+    const [moved] = arr.splice(result.source.index, 1);
+    arr.splice(result.destination.index, 0, moved);
+    updateSettings({ navigationItems: arr });
   };
 
   return (
     <div className="space-y-6">
+      {/* Header + Add Button */}
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">{t("menuItems")}</h3>
         <div className="flex gap-2">
-          <Select 
+          <Select
             size="sm"
             className="w-40"
             label={t("menuStyle")}
             value={settings.menuStyle}
             onChange={(e) => updateSettings({ menuStyle: e.target.value })}
           >
-            <SelectItem key="horizontal" value="horizontal">{t("horizontal")}</SelectItem>
-            <SelectItem key="vertical" value="vertical">{t("vertical")}</SelectItem>
-            <SelectItem key="dropdown" value="dropdown">{t("dropdown")}</SelectItem>
+            <SelectItem value="horizontal">{t("horizontal")}</SelectItem>
+            <SelectItem value="vertical">{t("vertical")}</SelectItem>
+            <SelectItem value="dropdown">{t("dropdown")}</SelectItem>
           </Select>
-          <Button 
-            color="primary" 
+          <Button
+            color="primary"
             size="sm"
             startContent={<Plus size={16} />}
-            onPress={() => setIsAddingItem(true)}
+            onPress={() => {
+              setIsAddingItem(true);
+              setEditingItemId(null);
+            }}
           >
             {t("addItem")}
           </Button>
         </div>
       </div>
-      
+
+      {/* Drag-and-Drop Table */}
       <Card>
-        <CardBody>
+        <CardBody className="overflow-x-auto">
           <DragDropContext onDragEnd={handleDragEnd}>
-            <Droppable droppableId="navigation-items">
-              {(provided) => (
-                <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
+            <Droppable droppableId="nav-items">
+              {(prov) => (
+                <table
+                  className="min-w-full divide-y divide-gray-200"
+                  ref={prov.innerRef}
+                  {...prov.droppableProps}
                 >
-                  <Table aria-label="Navigation items table">
-                    <TableHeader>
-                      <TableColumn>{t("label")}</TableColumn>
-                      <TableColumn>{t("url")}</TableColumn>
-                      <TableColumn width={140}>{t("actions")}</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      {settings.navigationItems.map((item, index) => (
-                        <Draggable key={item.id} draggableId={item.id} index={index}>
-                          {(provided) => (
-                            <TableRow 
-                              key={item.id} 
-                              ref={provided.innerRef}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                            >
-                              <TableCell>
-                                <div className="flex items-center gap-2">
-                                  {item.label}
-                                  {item.isExternal && (
-                                    <ExternalLink size={14} className="text-default-400" />
-                                  )}
-                                </div>
-                              </TableCell>
-                              <TableCell>
-                                <span className="text-default-500 text-sm">{item.url}</span>
-                              </TableCell>
-                              <TableCell>
-                                <div className="flex items-center gap-1">
-                                  <Tooltip content={t("moveUp")}>
-                                    <Button 
-                                      isIconOnly 
-                                      size="sm" 
-                                      variant="light"
-                                      onPress={() => handleMoveItem(item.id, "up")}
-                                      isDisabled={index === 0}
-                                    >
-                                      <ChevronUp size={16} />
-                                    </Button>
-                                  </Tooltip>
-                                  <Tooltip content={t("moveDown")}>
-                                    <Button 
-                                      isIconOnly 
-                                      size="sm" 
-                                      variant="light"
-                                      onPress={() => handleMoveItem(item.id, "down")}
-                                      isDisabled={index === settings.navigationItems.length - 1}
-                                    >
-                                      <ChevronDown size={16} />
-                                    </Button>
-                                  </Tooltip>
-                                  <Tooltip content={t("edit")}>
-                                    <Button 
-                                      isIconOnly 
-                                      size="sm" 
-                                      variant="light"
-                                      onPress={() => handleEditItem(item)}
-                                    >
-                                      <Edit2 size={16} />
-                                    </Button>
-                                  </Tooltip>
-                                  <Tooltip content={item.isVisible ? t("hide") : t("show")}>
-                                    <Button 
-                                      isIconOnly 
-                                      size="sm" 
-                                      variant="light"
-                                      onPress={() => handleToggleItemVisibility(item.id)}
-                                    >
-                                      {item.isVisible ? <Eye size={16} /> : <EyeOff size={16} />}
-                                    </Button>
-                                  </Tooltip>
-                                  <Tooltip content={t("delete")}>
-                                    <Button 
-                                      isIconOnly 
-                                      size="sm" 
-                                      variant="light" 
-                                      color="danger"
-                                      onPress={() => handleRemoveItem(item.id)}
-                                    >
-                                      <Trash2 size={16} />
-                                    </Button>
-                                  </Tooltip>
-                                </div>
-                              </TableCell>
-                            </TableRow>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </TableBody>
-                  </Table>
-                </div>
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-2 text-left">{t("label")}</th>
+                      <th className="px-4 py-2 text-left">{t("url")}</th>
+                      <th className="px-4 py-2 text-left w-36">
+                        {t("actions")}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {settings.navigationItems.map((item, idx) => (
+                      <Draggable
+                        key={item.id}
+                        draggableId={item.id}
+                        index={idx}
+                      >
+                        {(p, snap) => (
+                          <tr
+                            ref={p.innerRef}
+                            {...p.draggableProps}
+                            {...p.dragHandleProps}
+                            className={snap.isDragging ? "bg-gray-100" : ""}
+                          >
+                            <td className="px-4 py-2">
+                              <div className="flex items-center gap-2">
+                                {item.label}
+                                {item.isExternal && (
+                                  <ExternalLink
+                                    size={14}
+                                    className="text-gray-400"
+                                  />
+                                )}
+                              </div>
+                            </td>
+                            <td className="px-4 py-2 text-sm text-gray-500">
+                              {item.url}
+                            </td>
+                            <td className="px-4 py-2">
+                              <div className="flex items-center gap-1">
+                                <Tooltip content={t("moveUp")}>
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    onPress={() =>
+                                      handleMoveItem(item.id, "up")
+                                    }
+                                    isDisabled={idx === 0}
+                                  >
+                                    <ChevronUp size={16} />
+                                  </Button>
+                                </Tooltip>
+                                <Tooltip content={t("moveDown")}>
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    onPress={() =>
+                                      handleMoveItem(item.id, "down")
+                                    }
+                                    isDisabled={
+                                      idx ===
+                                      settings.navigationItems.length - 1
+                                    }
+                                  >
+                                    <ChevronDown size={16} />
+                                  </Button>
+                                </Tooltip>
+                                <Tooltip content={t("edit")}>
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    onPress={() => handleEditItem(item)}
+                                  >
+                                    <Edit2 size={16} />
+                                  </Button>
+                                </Tooltip>
+                                <Tooltip
+                                  content={
+                                    item.isVisible ? t("hide") : t("show")
+                                  }
+                                >
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    onPress={() =>
+                                      handleToggleItemVisibility(item.id)
+                                    }
+                                  >
+                                    {item.isVisible ? (
+                                      <Eye size={16} />
+                                    ) : (
+                                      <EyeOff size={16} />
+                                    )}
+                                  </Button>
+                                </Tooltip>
+                                <Tooltip content={t("delete")}>
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    color="danger"
+                                    onPress={() => handleRemoveItem(item.id)}
+                                  >
+                                    <Trash2 size={16} />
+                                  </Button>
+                                </Tooltip>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </Draggable>
+                    ))}
+                    {prov.placeholder}
+                  </tbody>
+                </table>
               )}
             </Droppable>
           </DragDropContext>
-          
-          {(isAddingItem || editingItemId) && (
-            <div className="mt-4 p-4 border border-default-200 rounded-lg">
+
+          {/* Add / Edit Form */}
+          {isAddingItem && (
+            <div className="mt-4 p-4 border border-gray-200 rounded-lg">
               <h4 className="text-md font-medium mb-3">
                 {editingItemId ? t("editMenuItem") : t("addMenuItem")}
               </h4>
@@ -264,26 +274,32 @@ const NavigationSettings = ({ settings, updateSettings }) => {
                   label={t("menuLabel")}
                   placeholder={t("enterLabel")}
                   value={newItem.label}
-                  onChange={(e) => setNewItem({...newItem, label: e.target.value})}
+                  onChange={(e) =>
+                    setNewItem({ ...newItem, label: e.target.value })
+                  }
                 />
                 <Input
                   label={t("menuUrl")}
                   placeholder={t("enterUrl")}
                   value={newItem.url}
-                  onChange={(e) => setNewItem({...newItem, url: e.target.value})}
+                  onChange={(e) =>
+                    setNewItem({ ...newItem, url: e.target.value })
+                  }
                 />
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Switch
                     isSelected={newItem.isExternal}
-                    onValueChange={(value) => setNewItem({...newItem, isExternal: value})}
+                    onValueChange={(v) =>
+                      setNewItem({ ...newItem, isExternal: v })
+                    }
                   />
                   <span className="text-sm">{t("openInNewTab")}</span>
                 </div>
                 <div className="flex gap-2">
-                  <Button 
-                    variant="flat" 
+                  <Button
+                    variant="flat"
                     onPress={() => {
                       setIsAddingItem(false);
                       setEditingItemId(null);
@@ -292,7 +308,7 @@ const NavigationSettings = ({ settings, updateSettings }) => {
                   >
                     {t("cancel")}
                   </Button>
-                  <Button 
+                  <Button
                     color="primary"
                     onPress={editingItemId ? handleUpdateItem : handleAddItem}
                   >
@@ -304,7 +320,8 @@ const NavigationSettings = ({ settings, updateSettings }) => {
           )}
         </CardBody>
       </Card>
-      
+
+      {/* Menu Behavior Settings */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h3 className="text-lg font-semibold mb-4">{t("menuBehavior")}</h3>
@@ -312,67 +329,74 @@ const NavigationSettings = ({ settings, updateSettings }) => {
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("stickyHeader")}</p>
-                <p className="text-sm text-default-500">{t("stickyHeaderDesc")}</p>
+                <p className="text-sm text-gray-500">{t("stickyHeaderDesc")}</p>
               </div>
-              <Switch 
-                isSelected={settings.stickyHeader} 
-                onValueChange={(value) => updateSettings({ stickyHeader: value })}
+              <Switch
+                isSelected={settings.stickyHeader}
+                onValueChange={(v) => updateSettings({ stickyHeader: v })}
               />
             </div>
-            
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("transparentHeader")}</p>
-                <p className="text-sm text-default-500">{t("transparentHeaderDesc")}</p>
+                <p className="text-sm text-gray-500">
+                  {t("transparentHeaderDesc")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.transparentHeader} 
-                onValueChange={(value) => updateSettings({ transparentHeader: value })}
+              <Switch
+                isSelected={settings.transparentHeader}
+                onValueChange={(v) => updateSettings({ transparentHeader: v })}
               />
             </div>
-            
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("showSearchIcon")}</p>
-                <p className="text-sm text-default-500">{t("showSearchIconDesc")}</p>
+                <p className="text-sm text-gray-500">
+                  {t("showSearchIconDesc")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.showSearchIcon} 
-                onValueChange={(value) => updateSettings({ showSearchIcon: value })}
+              <Switch
+                isSelected={settings.showSearchIcon}
+                onValueChange={(v) => updateSettings({ showSearchIcon: v })}
               />
             </div>
           </div>
         </div>
-        
+
+        {/* Mobile Menu Settings */}
         <div>
           <h3 className="text-lg font-semibold mb-4">{t("mobileMenu")}</h3>
           <div className="space-y-4">
-            <Select 
-              label={t("mobileMenuType")} 
+            <Select
+              label={t("mobileMenuType")}
               value={settings.mobileMenuType}
-              onChange={(e) => updateSettings({ mobileMenuType: e.target.value })}
+              onChange={(e) =>
+                updateSettings({ mobileMenuType: e.target.value })
+              }
             >
-              <SelectItem key="drawer" value="drawer">{t("drawer")}</SelectItem>
-              <SelectItem key="dropdown" value="dropdown">{t("dropdown")}</SelectItem>
-              <SelectItem key="fullscreen" value="fullscreen">{t("fullscreen")}</SelectItem>
+              <SelectItem value="drawer">{t("drawer")}</SelectItem>
+              <SelectItem value="dropdown">{t("dropdown")}</SelectItem>
+              <SelectItem value="fullscreen">{t("fullscreen")}</SelectItem>
             </Select>
-            
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("collapseOnScroll")}</p>
-                <p className="text-sm text-default-500">{t("collapseOnScrollDesc")}</p>
+                <p className="text-sm text-gray-500">
+                  {t("collapseOnScrollDesc")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.collapseOnScroll} 
-                onValueChange={(value) => updateSettings({ collapseOnScroll: value })}
+              <Switch
+                isSelected={settings.collapseOnScroll}
+                onValueChange={(v) => updateSettings({ collapseOnScroll: v })}
               />
             </div>
-            
             <Input
               type="number"
               label={t("hamburgerIconSize")}
               value={settings.hamburgerIconSize}
-              onChange={(e) => updateSettings({ hamburgerIconSize: e.target.value })}
+              onChange={(e) =>
+                updateSettings({ hamburgerIconSize: e.target.value })
+              }
               min={16}
               max={32}
               className="max-w-xs"
