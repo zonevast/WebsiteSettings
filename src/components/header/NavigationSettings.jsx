@@ -30,7 +30,7 @@ import {
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const NavigationSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("HeaderSettings.navigationSettings");
+  const t = useTranslations("HeaderSettingsPage.navigationSettings");
   const [isAddingItem, setIsAddingItem] = useState(false);
   const [newItem, setNewItem] = useState({ label: "", url: "", isExternal: false });
   const [editingItemId, setEditingItemId] = useState(null);

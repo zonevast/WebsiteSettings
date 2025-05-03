@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 const HeaderPreview = ({ settings }) => {
-  const t = useTranslations("HeaderSettings.preview");
+  const t = useTranslations("HeaderSettingsPage.preview");
   
   // Generate CSS styles based on settings
   const getHeaderStyles = () => {

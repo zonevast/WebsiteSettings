@@ -15,48 +15,8 @@ import {
 import { Palette, Monitor, Smartphone } from "lucide-react";
 
 const StyleSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("HeaderSettings.styleSettings");
+  const t = useTranslations("HeaderSettingsPage.styleSettings");
   
-  const handleBackgroundColorChange = (e) => {
-    updateSettings({ backgroundColor: e.target.value });
-  };
-  
-  const handleTextColorChange = (e) => {
-    updateSettings({ textColor: e.target.value });
-  };
-  
-  const handleHeightChange = (value) => {
-    updateSettings({ headerHeight: value });
-  };
-  
-  const handlePaddingChange = (value) => {
-    updateSettings({ headerPadding: value });
-  };
-  
-  const handleBorderChange = (e) => {
-    updateSettings({ borderStyle: e.target.value });
-  };
-  
-  const handleShadowChange = (e) => {
-    updateSettings({ shadowStyle: e.target.value });
-  };
-  
-  const handleToggleTransparency = (isSelected) => {
-    updateSettings({ isTransparent: isSelected });
-  };
-  
-  const handleToggleGradient = (isSelected) => {
-    updateSettings({ useGradient: isSelected });
-  };
-  
-  const handleGradientStartChange = (e) => {
-    updateSettings({ gradientStart: e.target.value });
-  };
-  
-  const handleGradientEndChange = (e) => {
-    updateSettings({ gradientEnd: e.target.value });
-  };
-
   return (
     <div className="space-y-6">
       <Tabs aria-label="Device view" color="primary" variant="bordered">

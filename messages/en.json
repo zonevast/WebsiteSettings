@@ -160,12 +160,11 @@
     }
   },
 
-
   "HeaderSettingsPage": {
     "headerTitle": "Header Settings",
     "headerDescription": "Customize the appearance and functionality of your website header.",
     "resetDefaults": "Reset Defaults",
-    "preview": "Preview",
+    "previewBtn": "Preview",
     "exitPreview": "Exit Preview",
     "saveChanges": "Save Changes",
     "tabs": {
@@ -180,7 +179,75 @@
     "mobilePreviewPlaceholder": "Mobile Header Preview",
     "templates": "Templates",
     "templateName": "Template {id}",
-    "browseMoreTemplates": "Browse More Templates"
+    "browseMoreTemplates": "Browse More Templates",
+
+    "preview": {
+      "defaultSiteTitle": "Your Site Title",
+      "previewContent": "Preview Content Here"
+    },
+    "logoSettings": {
+      "logoUpload": "Logo Upload",
+      "noLogoUploaded": "No logo uploaded",
+      "uploadLogo": "Upload Logo",
+      "siteTitle": "Site Title",
+      "titleText": "Title Text",
+      "enterSiteTitle": "Enter site title",
+      "showLogo": "Show Logo",
+      "showTitle": "Show Title",
+      "logoSize": "Logo Size",
+      "titleFont": "Title Font",
+      "titleSize": "Title Size",
+      "titleColor": "Title Color",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "default": "Default",
+      "serif": "Serif",
+      "sansSerif": "Sans-Serif",
+      "monospace": "Monospace",
+      "logoPosition": "Logo Position",
+      "left": "Left",
+      "center": "Center",
+      "right": "Right",
+      "favicon": "Favicon",
+      "uploadFavicon": "Upload Favicon",
+      "faviconRequirements": "Recommended size: 32x32 pixels"
+    },
+
+    "styleSettings": {
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "colors": "Colors",
+      "useTransparency": "Use Transparency",
+      "transparencyDesc": "Make the header background transparent.",
+      "useGradient": "Use Gradient",
+      "gradientDesc": "Apply a gradient to the header background.",
+      "gradientStart": "Gradient Start",
+      "gradientEnd": "Gradient End",
+      "backgroundColor": "Background Color",
+      "textColor": "Text Color",
+      "dimensions": "Dimensions",
+      "headerHeight": "Header Height",
+      "headerPadding": "Header Padding",
+      "borders": "Borders",
+      "borderStyle": "Border Style",
+      "borderWidth": "Border Width",
+      "borderColor": "Border Color",
+      "none": "None",
+      "bottom": "Bottom",
+      "top": "Top",
+      "all": "All",
+      "thin": "Thin",
+      "medium": "Medium",
+      "thick": "Thick",
+      "effects": "Effects",
+      "shadowStyle": "Shadow Style",
+      "glassmorphism": "Glassmorphism",
+      "glassmorphismDesc": "Apply a glassmorphism effect to the header.",
+      "blurIntensity": "Blur Intensity",
+      "small": "Small",
+      "large": "Large"
+    }
   },
 
   "SettingsPage": {
@@ -190,7 +257,6 @@
     "tabs": {
       "general": "General",
       "appearance": "Appearance"
-
     },
     "general": {
       "defaultLanguage": "Default Language",

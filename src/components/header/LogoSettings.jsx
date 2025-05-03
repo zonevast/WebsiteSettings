@@ -14,7 +14,7 @@ import {
 import { Upload, Trash2, RefreshCw } from "lucide-react";
 
 const LogoSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("HeaderSettings.logoSettings");
+  const t = useTranslations("HeaderSettingsPage.logoSettings");
   const [logoFile, setLogoFile] = useState(null);
   
   const handleLogoUpload = (e) => {
