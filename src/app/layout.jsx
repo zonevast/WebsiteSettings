@@ -18,9 +18,10 @@ const cairo = Cairo({
 });
 
 export const metadata = {
-  title: "Report360 - Insights for Products, Inventory, and Sales",
+  title:
+    "Website Settings - إدارة قوالب التجارة الإلكترونية والمدونات الخاصة بك",
   description:
-    "Get comprehensive reports on your products, inventory, customers, and sales to make data-driven decisions.",
+    "قم بتكوين تذييل ورأس موقع الويب الخاص بك، والصفحات الرئيسية، وصفحات 'نبذة عنا' و 'اتصل بنا'. اختر من بين قوالب التجارة الإلكترونية والمدونات مع إعدادات قابلة للتخصيص.",
 };
 // Function to get initial settings from cookies
 const getInitialSettings = (cookieStore) => {

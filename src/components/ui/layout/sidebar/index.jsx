@@ -3,7 +3,7 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, ChevronLeft, Package } from "lucide-react"; // Added ChevronLeft
+import { ChevronRight, ChevronLeft, Globe } from "lucide-react"; // Changed Package to Globe
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@nextui-org/button";
 import { Tooltip } from "@nextui-org/tooltip";
@@ -24,14 +24,11 @@ export default function Sidebar() {
 
   const {
     mainMenuItems,
-    analyticsItems,
-    aiInsightsMenu1,
-    aiInsightsMenu2,
-    exportItems, // Added exportItems
-    forecastingItems, // Added forecastingItems
+    layoutItems,
+    contentItems,
+    templateItems,
+    ecommerceItems,
     generalItems,
-    inventoryItems,
-    productItems,
   } = menuItems;
 
   // Toggle the sidebar collapse state in the store
@@ -146,7 +143,7 @@ export default function Sidebar() {
       {/* Logo Section */}
       <div className="p-6 flex items-center gap-4 flex-shrink-0 bg-background/50 dark:bg-content1/80">
         <div className="bg-gradient-to-r from-primary to-secondary p-2 rounded-xl flex-shrink-0">
-          <Package className="text-white w-6 h-6" />
+          <Globe className="text-white w-6 h-6" />
         </div>
         <AnimatePresence mode="wait">
           {isExpanded && (
@@ -158,7 +155,7 @@ export default function Sidebar() {
             >
               <span className="font-bold text-xl whitespace-nowrap">
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  {t("report360")}
+                  {t("websiteSettings")}
                 </span>
               </span>
             </motion.div>
@@ -180,7 +177,6 @@ export default function Sidebar() {
           } top-8 z-[1000] bg-background/60 dark:bg-content1/80 backdrop-blur-lg border border-divider dark:border-content2 shadow-lg hover:bg-primary/10 dark:hover:bg-primary/20`}
           onClick={toggleSidebar}
           style={{
-            // Added explicit RTL styles to fix positioning issues
             [isRTL ? "left" : "right"]: "-0.75rem",
           }}
         >
@@ -202,13 +198,10 @@ export default function Sidebar() {
       {/* Navigation Sections */}
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-6 custom-scrollbar dark:scrollbar-thumb-primary/30">
         {renderMenuSection(mainMenuItems, "sections.mainMenu")}
-        {renderMenuSection(analyticsItems, "sections.analytics")}
-        {/* {renderMenuSection(aiInsightsMenu1, "sections.aiInsights1")}
-        {renderMenuSection(aiInsightsMenu2, "sections.aiInsights2")}
-        {renderMenuSection(productItems, "sections.productItems")}
-        {renderMenuSection(inventoryItems, "sections.inventoryItems")} */}
-        {renderMenuSection(exportItems, "sections.exportItems")}
-        {/* {renderMenuSection(forecastingItems, "sections.forecastingItems")} */}
+        {renderMenuSection(layoutItems, "sections.layout")}
+        {renderMenuSection(contentItems, "sections.content")}
+        {renderMenuSection(templateItems, "sections.templates")}
+        {/* {renderMenuSection(ecommerceItems, "sections.ecommerce")} */}
         {renderMenuSection(generalItems, "sections.generalItems")}
       </div>
     </motion.div>

@@ -10,158 +10,144 @@
     "logout": "Log Out"
   },
   "Sidebar": {
-    "report360": "Report360",
+    "websiteSettings": "Website Settings",
     "collapseSidebar": "Collapse Sidebar",
     "expandSidebar": "Expand Sidebar",
     "sections": {
       "mainMenu": "Main Menu",
-      "analytics": "Analytics",
-      "aiInsights1": "AI Insights 1",
-      "aiInsights2": "AI Insights 2",
-      "productItems": "Products",
-      "inventoryItems": "Inventory",
-      "exportItems": "Export",
-      "forecastingItems": "Forecasting",
+      "layout": "Layout",
+      "content": "Content",
+      "templates": "Templates",
+      "ecommerce": "E-commerce",
+      "blog": "Blog",
       "generalItems": "General"
     },
+
     "menus": {
       "mainMenuItems": {
         "dashboard": {
           "label": "Dashboard",
-          "description": "Report360 Overview"
+          "description": "Website overview and statistics"
         }
       },
-      "analyticsItems": {
-        "productAnalytics": {
-          "label": "Product Analytics",
-          "description": "Product Performance Analysis"
+      "layoutItems": {
+        "header": {
+          "label": "Header",
+          "description": "Configure website header"
         },
-        "salesAnalytics": {
-          "label": "Sales Analytics",
-          "description": "Sales Performance Tracking"
+        "footer": {
+          "label": "Footer",
+          "description": "Configure website footer"
         },
-        "inventoryAnalytics": {
-          "label": "Inventory Analytics",
-          "description": "Inventory Metrics and Insights"
+        "navigation": {
+          "label": "Navigation",
+          "description": "Manage site navigation"
         },
-        "customerAnalytics": {
-          "label": "Customer Analytics",
-          "description": "Customer Behavior Analysis"
-        },
-        "geographicAnalysis": {
-          "label": "Geographic Analysis",
-          "description": "Geographic Distribution"
+        "theme": {
+          "label": "Theme",
+          "description": "Customize site appearance"
         }
       },
-      "aiInsightsMenu1": {
-        "aiAssistant": {
-          "label": "AI Assistant",
-          "description": "Smart Report Assistance"
+      "contentItems": {
+        "homePage": {
+          "label": "Home Page",
+          "description": "Edit home page content"
         },
-        "predictiveAnalytics": {
-          "label": "Predictive Analytics",
-          "description": "Advanced Analytics Predictions"
+        "aboutPage": {
+          "label": "About Page",
+          "description": "Edit about page content"
         },
-        "trendAnalysis": {
-          "label": "Trend Analysis",
-          "description": "Market and Business Trends"
+        "contactPage": {
+          "label": "Contact Page",
+          "description": "Edit contact page content"
+        },
+        "mediaGallery": {
+          "label": "Media Gallery",
+          "description": "Manage website images"
         }
       },
-      "aiInsightsMenu2": {
-        "recommendationEngine": {
-          "label": "Recommendation Engine",
-          "description": "Smart Data Recommendations"
+      "templateItems": {
+        "templateStore": {
+          "label": "Template Store",
+          "description": "Browse website templates"
         },
-        "businessIntelligence": {
-          "label": "Business Intelligence",
-          "description": "Actionable Data Insights"
+        "installedTemplates": {
+          "label": "Installed Templates",
+          "description": "Manage installed templates"
+        },
+        "customizeTemplate": {
+          "label": "Customize Template",
+          "description": "Modify current template"
         }
       },
-      "productItems": {
-        "productCatalog": {
-          "label": "Product Catalog",
-          "description": "Product Listings"
+      "ecommerceItems": {
+        "products": {
+          "label": "Products",
+          "description": "Manage product listings"
         },
-        "productCategories": {
-          "label": "Product Categories",
-          "description": "Category Management"
+        "categories": {
+          "label": "Categories",
+          "description": "Organize product categories"
         },
-        "pricingManagement": {
-          "label": "Pricing Management",
-          "description": "Price Management"
+        "checkout": {
+          "label": "Checkout",
+          "description": "Configure checkout process"
         },
-        "productPerformance": {
-          "label": "Product Performance",
-          "description": "Performance Metrics"
+        "shipping": {
+          "label": "Shipping",
+          "description": "Manage shipping options"
         },
-        "productBundles": {
-          "label": "Product Bundles",
-          "description": "Bundle Management"
+        "cart": {
+          "label": "Shopping Cart",
+          "description": "Configure shopping cart"
         }
       },
-      "inventoryItems": {
-        "stockManagement": {
-          "label": "Stock Management",
-          "description": "Stock Levels"
+      "blogItems": {
+        "posts": {
+          "label": "Blog Posts",
+          "description": "Manage blog articles"
         },
-        "inventoryTracking": {
-          "label": "Inventory Tracking",
-          "description": "Real-time Tracking"
+        "editor": {
+          "label": "Post Editor",
+          "description": "Create and edit blog content"
         },
-        "supplyChain": {
-          "label": "Supply Chain",
-          "description": "Supply Chain"
+        "comments": {
+          "label": "Comments",
+          "description": "Moderate blog comments"
         },
-        "reorderManagement": {
-          "label": "Reorder Management",
-          "description": "Reorder Points"
+        "categories": {
+          "label": "Categories",
+          "description": "Organize blog categories"
         },
-        "inventoryValuation": {
-          "label": "Inventory Valuation",
-          "description": "Inventory Value"
-        }
-      },
-      "exportItems": {
-"reports": {
-        "label": "My Reports",
-        "description": "Generate and View My Reports"
-    },
-        "reportBuilder": {
-          "label": "Report Builder",
-          "description": "Customize Your Reports"
-        },
-
-        "templates": {
-          "label": "Templates",
-          "description": "Use pre-designed templates to quickly create reports."
-        },
-        "exportData": {
-          "label": "Export Data",
-          "description": "Export reports in various formats"
-        }
-      },
-      "forecastingItems": {
-        "forecasting": {
-          "label": "Forecasting",
-          "description": "AI-Powered Data Forecasting"
-        },
-        "timelineAnalysis": {
-          "label": "Timeline Analysis",
-          "description": "View data across timelines"
+        "social": {
+          "label": "Social Sharing",
+          "description": "Configure social media sharing"
         }
       },
       "generalItems": {
-        "settings": {
-          "label": "Settings",
-          "description": "System Configurations"
+        "generalSettings": {
+          "label": "General Settings",
+          "description": "Basic website configuration"
         },
-        "recycleBin": {
-          "label": "Recycle Bin",
-          "description": "Deleted Items Recovery"
+        "seo": {
+          "label": "SEO Settings",
+          "description": "Search engine optimization"
         },
-        "about": {
-          "label": "About Report360",
-          "description": "Learn About Report360"
+        "users": {
+          "label": "User Management",
+          "description": "Manage website administrators"
+        },
+        "languages": {
+          "label": "Languages",
+          "description": "Configure site translations"
+        },
+        "security": {
+          "label": "Security",
+          "description": "Website security settings"
+        },
+        "backup": {
+          "label": "Backup & Restore",
+          "description": "Manage website backups"
         }
       }
     }
@@ -172,475 +158,5 @@
       "description": "This feature is currently under development. We are working hard to bring it to you as soon as possible.",
       "checkBackLater": "Check back later!"
     }
-  },
-
-  "ProductAnalyticsPage": {
-    "productAnalytics": "Product Analytics",
-    "productAnalyticsDescription": "Comprehensive insights into your product performance and sales metrics",
-    "last7Days": "Last 7 Days",
-    "last30Days": "Last 30 Days",
-    "last90Days": "Last 90 Days",
-    "customRange": "Custom Range",
-    "filters": "Filters",
-    "byCategory": "By Category",
-    "byPriceRange": "By Price Range",
-    "byStockLevel": "By Stock Level",
-    "byPerformance": "By Performance",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data"
-  },
-
-  "SalesAnalyticsPage": {
-    "pageTitle": "Sales Analytics",
-    "pageDescription": "Track your sales performance and identify key trends.",
-    "totalRevenue": "Total Revenue",
-    "totalOrders": "Total Orders",
-    "averageOrderValue": "Average Order Value",
-    "returnRate": "Return Rate",
-    "allOrders": "All Orders",
-    "onlineOrders": "Online Orders",
-    "storeOrders": "Store Orders",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data",
-    "overview": "Overview",
-    "sales": "Sales",
-    "customers": "Customers",
-    "geography": "Geography",
-    "last7Days": "Last 7 Days",
-    "last30Days": "Last 30 Days",
-    "last90Days": "Last 90 Days",
-    "lastYear": "Last Year",
-    "current": "Current",
-    "previous": "Previous",
-    "revenue": "Revenue",
-    "orders": "Orders",
-    "new": "New",
-    "returning": "Returning",
-    "customerSegmentation": "Customer Segmentation",
-    "byType": "By Type",
-    "byLocation": "By Location",
-    "topProducts": "Top Products",
-    "salesByProduct": "Sales by Product",
-    "noDataAvailable": "No Data Available",
-    "lineChart": "Line Chart",
-    "barChart": "Bar Chart",
-    "pieChart": "Pie Chart",
-
-    "OverviewTabContent": {
-      "revenueAndOrders": "Revenue & Orders",
-      "revenueAndOrdersDescription": "A combined view of revenue and order trends.",
-      "filter": "Filter",
-      "allChannels": "All Channels",
-      "website": "Website",
-      "mobileApp": "Mobile App",
-      "marketplace": "Marketplace",
-      "orders": "Orders",
-      "revenue": "Revenue",
-      "categoryDistribution": "Category Distribution",
-      "channelDistribution": "Channel Distribution",
-      "orderFulfillment": "Order Fulfillment",
-      "topSellingProducts": "Top Selling Products",
-      "product": "Product",
-      "sales": "Sales",
-      "growth": "Growth",
-      "salesTrend": "Sales Trend",
-      "salesByChannel": "Sales by Channel",
-      "salesForecast": "Sales Forecast",
-      "actualSales": "Actual Sales"
-    }
-  },
-
-  "InventoryAnalyticsPage": {
-    "inventoryAnalytics": "Inventory Analytics",
-    "inventoryAnalyticsDescription": "Track inventory performance, stock levels, and supply chain metrics",
-    "totalInventoryValue": "Total Inventory Value",
-    "inventoryTurnover": "Inventory Turnover",
-    "stockoutRate": "Stockout Rate",
-    "daysOfSupply": "Days of Supply",
-    "last7Days": "Last 7 Days",
-    "last30Days": "Last 30 Days",
-    "last90Days": "Last 90 Days",
-    "customRange": "Custom Range",
-    "warehouses": "Warehouses",
-    "allWarehouses": "All Warehouses",
-    "north": "North",
-    "south": "South",
-    "east": "East",
-    "west": "West",
-    "central": "Central",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data"
-  },
-
-  "CustomerAnalyticsPage": {
-    "customerAnalyticsTitle": "Customer Analytics",
-    "customerAnalyticsDescription": "Comprehensive insights into your customer behavior and engagement metrics",
-    "totalCustomers": "Total Customers",
-    "activeCustomers": "Active Customers",
-    "avgLifetimeValue": "Avg. Lifetime Value",
-    "churnRate": "Churn Rate",
-    "last7Days": "Last 7 Days",
-    "last30Days": "Last 30 Days",
-    "last90Days": "Last 90 Days",
-    "customRange": "Custom Range",
-    "segments": "Segments",
-    "allSegments": "All Segments",
-    "loyalCustomers": "Loyal Customers",
-    "regularBuyers": "Regular Buyers",
-    "occasionalShoppers": "Occasional Shoppers",
-    "newCustomers": "New Customers",
-    "atRiskCustomers": "At-Risk Customers",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data"
-  },
-  "GeographicAnalysisPage": {
-    "geographicAnalysis": "Geographic Analysis",
-    "geographicAnalysisDescription": "Understand your sales distribution across different regions.",
-    "allRegions": "All Regions",
-    "onlineSales": "Online Sales",
-    "inStoreSales": "In-Store Sales",
-    "last7Days": "Last 7 Days",
-    "last30Days": "Last 30 Days",
-    "last90Days": "Last 90 Days",
-    "customRange": "Custom Range",
-    "filters": "Filters",
-    "byRegion": "By Region",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data",
-    "geographicDistribution": "Geographic Distribution",
-    "customerDistributionAndRevenueByRegion": "Customer distribution and revenue by region",
-    "viewMap": "View Map",
-    "asiaShowingFastestGrowth": "Asia showing fastest growth",
-    "regionalAnalysis": "Regional Analysis",
-    "customers": "Customers",
-    "revenue": "Revenue",
-    "growth": "Growth",
-    "totalRegions": "Total Regions",
-    "mostPopularRegion": "Most Popular Region",
-    "avgRevenuePerRegion": "Average Revenue Per Region",
-    "GeographyTabContent": {
-      "fastestGrowingCities": "Fastest Growing Cities",
-      "city": "City",
-      "orders": "Orders",
-      "growth": "Growth",
-      "orderDistributionByGovernorate": "Order Distribution by Governorate",
-      "hoverForDetails": "Hover for details",
-      "low": "Low",
-      "high": "High",
-      "topGovernoratesByOrders": "Top Governorates by Orders",
-      "topGovernoratesByRevenue": "Top Governorates by Revenue"
-    }
-  },
-
-  "ReportBuilderPage": {
-    "reportTitle": "Report Builder",
-    "description": "Create and customize your report.",
-    "actions": {
-      "preview": "Preview Report"
-    },
-
-    "PreviewModal": {
-      "title": "Report Preview",
-      "downloadCSV": "Download CSV",
-      "downloadPDF": "Download PDF",
-      "buttons": {
-        "close": "Close"
-      }
-    },
-
-    "ReportContent": {
-      "noElementsMessage": "No report elements have been added yet. Add elements to start building your report."
-    },
-
-    "AbilitiesPanel": {
-      "reportElements": "Report Elements",
-      "customTable": "Custom Table",
-      "createNew": "Create New",
-      "salesSummary": "Sales Summary",
-      "inventoryStatus": "Inventory Status"
-    },
-
-    "TableBuilderModal": {
-      "createTableHeader": "Create Table",
-      "createTableDescription": "Configure your table by choosing a data source and applying filters.",
-      "dataSource": "Data Source",
-      "dataSourceStepDescription": "Choose the data source for your table.",
-      "filters": "Filters",
-      "filtersStepDescription": "Configure the filters to narrow down the data.",
-
-      "DataSourceStep": {
-        "selectDataSource": "Select Data Source",
-        "dataSourceDescription": "Choose the data source for your table.",
-        "dataSource": "Data Source",
-        "selectDataSourcePlaceholder": "Select a data source",
-        "availableFields": "Available Fields"
-      },
-
-      "FiltersStep": {
-        "noDataSourceSelected": "Please select a data source to configure filters.",
-        "configureFilters": "Configure Filters",
-        "filtersDescription": "Apply filters to narrow down the data in your table.",
-        "activeFilters": "Active Filters",
-        "addFilter": "Add Filter",
-        "noFiltersAdded": "No filters have been added yet.",
-        "field": "Field",
-        "operator": "Operator",
-        "equals": "Equals",
-        "contains": "Contains",
-        "greaterThan": "Greater Than",
-        "lessThan": "Less Than",
-        "value": "Value",
-        "enterValue": "Enter Value",
-        "apiEndpointPreview": "API Endpoint Preview"
-      },
-
-      "cancel": "Cancel",
-      "back": "Back",
-      "next": "Next",
-      "createTable": "Create Table",
-
-      "useTableBuilderModal": {
-        "dataSource": "Data Source",
-        "dataSourceStepDescription": "Select the data source for the table.",
-        "filters": "Filters",
-        "filtersStepDescription": "Select the filters to refine the data.",
-        "orders": "Orders",
-        "orderId": "Order ID",
-        "orderDate": "Order Date",
-        "customer": "Customer",
-        "status": "Status",
-        "paymentStatus": "Payment Status",
-        "totalAmount": "Total Amount",
-        "tags": "Tags",
-        "lastUpdated": "Last Updated",
-        "products": "Products",
-        "productId": "Product ID",
-        "name": "Name",
-        "description": "Description",
-        "category": "Category",
-        "price": "Price",
-        "profitPercent": "Profit Percent",
-        "mainImage": "Main Image",
-        "brand": "Brand",
-        "schema": "Schema",
-        "visibility": "Visibility",
-        "createdDate": "Created Date",
-        "customers": "Customers",
-        "customerId": "Customer ID",
-        "email": "Email",
-        "phone": "Phone",
-        "totalOrders": "Total Orders",
-        "sellingPoints": "Selling Points",
-        "pointId": "Point ID",
-        "location": "Location",
-        "manager": "Manager",
-        "totalSales": "Total Sales"
-      }
-    },
-
-    "ReportTable": {
-      "dataSource": "Data Source",
-      "filtersApplied": "Filters Applied",
-      "exportCSV": "Export",
-      "edit": "Edit",
-      "delete": "Delete",
-      "errorLoadingData": "Error loading data.",
-      "noDataAvailable": "No data available."
-    }
-  },
-
-  "SettingsPage": {
-    "title": "Settings",
-    "description": "Manage your application preferences and configurations.",
-    "tabs": {
-      "appearance": "Appearance",
-      "general": "General"
-    },
-
-    "exportSettings": {
-      "title": "Export Settings",
-      "formatPreferences": "Format Preferences",
-      "defaultExportFormat": "Default Export Format",
-      "defaultExportFormatDescription": "Choose your preferred format for exports",
-      "includeVisualizations": "Include Visualizations",
-      "includeVisualizationsDescription": "Include charts and graphs in exports",
-      "includeRawData": "Include Raw Data",
-      "includeRawDataDescription": "Include raw data tables in exports",
-      "deliveryOptions": "Delivery Options",
-      "emailExports": "Email Exports",
-      "emailExportsDescription": "Automatically email exports when complete",
-      "defaultRecipients": "Default Recipients",
-      "defaultRecipientsDescription": "Default email recipients for exports",
-      "edit": "Edit",
-      "saveToCloud": "Save to Cloud",
-      "saveToCloudDescription": "Automatically save exports to cloud storage",
-      "exportQuotasLimits": "Export Quotas & Limits",
-      "monthlyExportQuota": "Monthly Export Quota",
-      "storageUsage": "Storage Usage",
-      "scheduledExports": "Scheduled Exports",
-      "activeSchedules": "active schedules",
-      "currentPlan": "Current Plan",
-      "businessPlan": "Business",
-      "upgradePlan": "Upgrade Plan"
-    },
-    "formats": {
-      "excel": "Excel (XLSX)",
-      "csv": "CSV",
-      "pdf": "PDF",
-      "json": "JSON",
-      "excelDescription": "Microsoft Excel spreadsheet format",
-      "csvDescription": "Comma-separated values format",
-      "pdfDescription": "Portable Document Format",
-      "jsonDescription": "JavaScript Object Notation format"
-    },
-
-    "general": {
-      "defaultLanguage": "Default Language",
-      "timezone": "Timezone",
-      "dateFormat": "Date Format",
-      "defaultCurrency": "Default Currency"
-    },
-    "appearance": {
-      "theme": "Theme",
-      "themes": {
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
-      },
-      "density": "Density",
-      "densities": {
-        "comfortable": "Comfortable",
-        "compact": "Compact",
-        "spacious": "Spacious"
-      },
-      "sidebarCollapsed": "Collapse Sidebar",
-      "colorScheme": "Color Scheme",
-      "colorSchemes": {
-        "default": "Default",
-        "blue": "Blue",
-        "green": "Green",
-        "purple": "Purple",
-        "amber": "Amber"
-      }
-    }
-  },
-
-  "AboutPage": {
-    "description": "Report360 provides a comprehensive overview of your business performance, offering actionable insights and advanced analytics to help you make informed decisions.",
-    "features": {
-      "productAnalytics": {
-        "title": "Product Analytics",
-        "description": "Analyze product performance, identify trends, and optimize your product strategy."
-      },
-      "salesAnalytics": {
-        "title": "Sales Analytics",
-        "description": "Track sales performance, monitor key metrics, and improve sales effectiveness."
-      },
-      "inventoryAnalytics": {
-        "title": "Inventory Analytics",
-        "description": "Optimize inventory levels, reduce costs, and improve supply chain efficiency."
-      },
-      "customerAnalytics": {
-        "title": "Customer Analytics",
-        "description": "Understand customer behavior, personalize experiences, and build stronger relationships."
-      },
-      "predictiveAnalytics": {
-        "title": "Predictive Analytics",
-        "description": "Forecast future trends, anticipate market changes, and make proactive decisions."
-      },
-      "reportBuilder": {
-        "title": "Custom Report Builder",
-        "description": "Create tailored reports, visualize data, and share insights with stakeholders."
-      }
-    },
-    "changelogTitle": "Latest Updates",
-    "viewFullChangelog": "View Full Changelog",
-    "changelog": {
-      "geographicAnalysis": "Geographic Analysis Feature",
-      "geographicAnalysisDesc": "Visualize data on interactive maps, identify regional trends, and optimize geographic strategies.",
-      "aiAssistant": "Enhanced AI Assistant",
-      "aiAssistantDesc": "Get smart recommendations, automate tasks, and improve overall efficiency.",
-      "inventoryValuation": "Inventory Valuation Tools",
-      "inventoryValuationDesc": "Calculate inventory value, track asset depreciation, and improve financial management.",
-      "reportBuilder": "Improved Report Builder",
-      "reportBuilderDesc": "Customize reports with more flexibility, add new visualizations, and easily share insights.",
-      "forecastingBugfix": "Forecasting Bugfix",
-      "forecastingBugfixDesc": "Resolved an issue causing inaccurate forecasting results, improving prediction accuracy."
-    },
-    "keyCapabilities": "Key Analytics & AI Insights",
-    "analyticsCapabilities": "Analytics Capabilities",
-    "productAnalyticsCapability": "Product Performance Analysis",
-    "salesAnalyticsCapability": "Sales Performance Tracking",
-    "inventoryAnalyticsCapability": "Inventory Metrics and Insights",
-    "customerAnalyticsCapability": "Customer Behavior Analysis",
-    "geographicAnalysisCapability": "Geographic Distribution Analysis",
-    "aiInsightsCapabilities": "AI Insights Capabilities",
-    "aiAssistantCapability": "Smart Report Assistance",
-    "predictiveAnalyticsCapability": "Advanced Analytics Predictions",
-    "trendAnalysisCapability": "Market and Business Trends Analysis",
-    "recommendationEngineCapability": "Smart Data Recommendations",
-    "businessIntelligenceCapability": "Actionable Data Insights",
-    "needHelp": "Need Help?",
-    "supportDescription": "Find answers to your questions, explore documentation, and get support from our team.",
-    "viewDocumentation": "View Documentation",
-    "exportReports": "Export Data"
-  },
-
-  "FinancialAnalytics": {
-    "pageTitle": "Financial Analytics",
-    "pageDescription": "Comprehensive overview of your financial performance and metrics",
-    "daily": "Daily",
-    "weekly": "Weekly",
-    "monthly": "Monthly",
-    "yearly": "Yearly",
-    "allTransactions": "All Transactions",
-    "onlineTransactions": "Online Transactions",
-    "storeTransactions": "Store Transactions",
-    "exportReport": "Export Report",
-    "refreshData": "Refresh Data",
-    "exportAlertMessage": "Exporting financial report...",
-    "errorMessage": "Error loading financial data. Please try again later.",
-    
-    "totalRevenue": "Total Revenue",
-    "revenueDescription": "Total income from all sales",
-    "totalProfit": "Total Profit",
-    "profitDescription": "Net income after expenses",
-    "totalExpenses": "Total Expenses",
-    "expensesDescription": "All costs incurred in operations",
-    "totalTax": "Total Tax",
-    "taxDescription": "Total tax collected on sales",
-    "totalRefunds": "Total Refunds",
-    "refundsDescription": "Amount refunded to customers",
-    "paymentMethods": "Payment Methods",
-    "paymentMethodsDescription": "Distribution by payment type",
-    "invoicesPaid": "Invoices Paid",
-    "invoicesPaidDescription": "Number of paid invoices",
-    "invoicesUnpaid": "Invoices Unpaid",
-    "invoicesUnpaidDescription": "Number of unpaid invoices",
-    
-    "revenueAndProfit": "Revenue & Profit",
-    "revenueAndProfitChart": "Revenue & Profit Trends",
-    "revenueAndProfitDescription": "Comparison of revenue, profit and expenses over time",
-    "invoices": "Invoices",
-    "invoicesComparisonChart": "Invoices Comparison",
-    "invoicesComparisonDescription": "Comparison of paid vs unpaid invoices over time",
-    "invoiceStatus": "Invoice Status",
-    "invoiceStatusDescription": "Distribution of paid vs unpaid invoices",
-    "refundsAndTaxes": "Refunds & Taxes",
-    "refundsChart": "Refunds Over Time",
-    "refundsDescription": "Amount refunded to customers over time",
-    "taxChart": "Tax Collected",
-    "taxDescription": "Tax amounts collected over time",
-    
-    "areaChart": "Area",
-    "lineChart": "Line",
-    "barChart": "Bar",
-    "revenue": "Revenue",
-    "profit": "Profit",
-    "expenses": "Expenses",
-    "paidInvoices": "Paid Invoices",
-    "unpaidInvoices": "Unpaid Invoices",
-    "refundAmount": "Refund Amount",
-    "taxAmount": "Tax Amount"
   }
 }

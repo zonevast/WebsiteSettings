@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { GeneralSettings } from "./setions/GeneralSettings";
 import { AppearanceSettings } from "./setions/AppearanceSettings";
 import { containerVariants, itemVariants } from "@/components/animations";
-import ExportSettings from "./setions/ExportSettings";
 
 function SettingsPage() {
   const t = useTranslations("SettingsPage");
@@ -33,9 +32,7 @@ function SettingsPage() {
         <motion.div variants={itemVariants}>
           <GeneralSettings />
         </motion.div>
-        <motion.div variants={itemVariants}>
-          <ExportSettings />
-        </motion.div>
+
         <motion.div variants={itemVariants}>
           <AppearanceSettings />
         </motion.div>
