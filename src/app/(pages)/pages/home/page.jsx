@@ -25,12 +25,12 @@ import {
   Layers
 } from "lucide-react";
 import { useHomeSettings } from "./useHomeSettings";
-import HeroSettings from "./components/homePage/HeroSettings";
-import FeaturesSettings from "./components/homePage/FeaturesSettings";
-import ContentBlocksSettings from "./components/homePage/ContentBlocksSettings";
-import TestimonialsSettings from "./components/homePage/TestimonialsSettings";
-import CTASettings from "./components/homePage/CTASettings";
-import HomePreview from "./components/homePage/HomePreview";
+import HeroSettings from "@/components/homePage/HeroSettings";
+import FeaturesSettings from "@/components/homePage/FeaturesSettings";
+import ContentBlocksSettings from "@/components/homePage/ContentBlocksSettings";
+import TestimonialsSettings from "@/components/homePage/TestimonialsSettings";
+import CTASettings from "@/components/homePage/CTASettings";
+import HomePreview from "@/components/homePage/HomePreview";
 
 const HomePage = () => {
   const t = useTranslations("HomePage");

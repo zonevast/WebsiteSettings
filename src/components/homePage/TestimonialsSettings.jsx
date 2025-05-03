@@ -24,8 +24,8 @@ import {
   MessageSquare,
   User,
 } from "lucide-react";
-import ColorPicker from "@/components/ColorPicker";
-import ImageUploader from "@/components/ImageUploader";
+import ColorPicker from "./ColorPicker";
+import ImageUploader from "./ImageUploader";
 
 const TestimonialsSettings = ({ settings, updateSettings }) => {
   const t = useTranslations("HomePage.testimonials");
