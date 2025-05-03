@@ -1,0 +1,645 @@
+{
+  "AppNavbar": {
+    "goToPortal": "الذهاب إلى البوابة",
+    "goToPortalDescription": "الوصول إلى البوابة لإدارة حسابك وإعدادات التقارير.",
+    "createReport": "إنشاء تقرير",
+    "createReportDescription": "إنشاء تقرير جديد بسرعة.",
+    "searchPlaceholder": "البحث عن التقارير...",
+    "signedInAs": "تم تسجيل الدخول باسم",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+  },
+  "Sidebar": {
+    "report360": "Report360",
+    "collapseSidebar": "طي الشريط الجانبي",
+    "expandSidebar": "توسيع الشريط الجانبي",
+    "sections": {
+      "mainMenu": "القائمة الرئيسية",
+      "analytics": "التحليلات",
+      "aiInsights1": "رؤى الذكاء الاصطناعي 1",
+      "aiInsights2": "رؤى الذكاء الاصطناعي 2",
+      "productItems": "المنتجات",
+      "inventoryItems": "المخزون",
+      "exportItems": "تصدير",
+      "forecastingItems": "التنبؤ",
+      "generalItems": "عام"
+    },
+    "menus": {
+      "mainMenuItems": {
+        "dashboard": {
+          "label": "لوحة التحكم",
+          "description": "نظرة عامة على Report360"
+        }
+      },
+      "analyticsItems": {
+        "productAnalytics": {
+          "label": "تحليلات المنتج",
+          "description": "تحليل أداء المنتج"
+        },
+        "salesAnalytics": {
+          "label": "تحليلات المبيعات",
+          "description": "تتبع أداء المبيعات"
+        },
+        "inventoryAnalytics": {
+          "label": "تحليلات المخزون",
+          "description": "مقاييس ورؤى المخزون"
+        },
+        "customerAnalytics": {
+          "label": "تحليلات العملاء",
+          "description": "تحليل سلوك العملاء"
+        },
+        "geographicAnalysis": {
+          "label": "تحليل جغرافي",
+          "description": "التوزيع الجغرافي"
+        }
+      },
+      "aiInsightsMenu1": {
+        "aiAssistant": {
+          "label": "مساعد الذكاء الاصطناعي",
+          "description": "مساعدة ذكية في التقارير"
+        },
+        "predictiveAnalytics": {
+          "label": "تحليلات تنبؤية",
+          "description": "توقعات تحليلية متقدمة"
+        },
+        "trendAnalysis": {
+          "label": "تحليل الاتجاهات",
+          "description": "اتجاهات السوق والأعمال"
+        }
+      },
+      "aiInsightsMenu2": {
+        "recommendationEngine": {
+          "label": "محرك التوصيات",
+          "description": "توصيات بيانات ذكية"
+        },
+        "businessIntelligence": {
+          "label": "ذكاء الأعمال",
+          "description": "رؤى بيانات قابلة للتنفيذ"
+        }
+      },
+      "productItems": {
+        "productCatalog": {
+          "label": "كتالوج المنتجات",
+          "description": "قوائم المنتجات"
+        },
+        "productCategories": {
+          "label": "فئات المنتجات",
+          "description": "إدارة الفئات"
+        },
+        "pricingManagement": {
+          "label": "إدارة التسعير",
+          "description": "إدارة الأسعار"
+        },
+        "productPerformance": {
+          "label": "أداء المنتج",
+          "description": "مقاييس الأداء"
+        },
+        "productBundles": {
+          "label": "حزم المنتجات",
+          "description": "إدارة الحزم"
+        }
+      },
+      "inventoryItems": {
+        "stockManagement": {
+          "label": "إدارة المخزون",
+          "description": "مستويات المخزون"
+        },
+        "inventoryTracking": {
+          "label": "تتبع المخزون",
+          "description": "تتبع في الوقت الفعلي"
+        },
+        "supplyChain": {
+          "label": "سلسلة التوريد",
+          "description": "سلسلة التوريد"
+        },
+        "reorderManagement": {
+          "label": "إدارة إعادة الطلب",
+          "description": "نقاط إعادة الطلب"
+        },
+        "inventoryValuation": {
+          "label": "تقييم المخزون",
+          "description": "قيمة المخزون"
+        }
+      },
+      "exportItems": {
+        "reports": {
+          "label": "تقاريري",
+          "description": "إنشاء وعرض تقاريري"
+        },
+
+        "reportBuilder": {
+          "label": "منشئ التقارير",
+          "description": "تخصيص التقارير الخاصة بك"
+        },
+
+        "templates": {
+          "label": "القوالب",
+          "description": "استخدم قوالب مصممة مسبقًا لإنشاء التقارير بسرعة."
+        },
+        "exportData": {
+          "label": "تصدير البيانات",
+          "description": "تصدير التقارير بتنسيقات مختلفة"
+        }
+      },
+      "forecastingItems": {
+        "forecasting": {
+          "label": "التنبؤ",
+          "description": "التنبؤ بالبيانات المدعوم بالذكاء الاصطناعي"
+        },
+        "timelineAnalysis": {
+          "label": "تحليل الجدول الزمني",
+          "description": "عرض البيانات عبر الجداول الزمنية"
+        }
+      },
+      "generalItems": {
+        "settings": {
+          "label": "الإعدادات",
+          "description": "تكوينات النظام"
+        },
+        "recycleBin": {
+          "label": "سلة المحذوفات",
+          "description": "استعادة العناصر المحذوفة"
+        },
+        "about": {
+          "label": "حول Report360",
+          "description": "تعرف على Report360"
+        }
+      }
+    }
+  },
+  "ui": {
+    "comingSoon": {
+      "comingSoon": "قريبا",
+      "description": "هذه الميزة قيد التطوير حاليًا. نحن نعمل بجد لتقديمها لك في أقرب وقت ممكن.",
+      "checkBackLater": "تحقق مرة أخرى لاحقًا!"
+    }
+  },
+
+  "ProductAnalyticsPage": {
+    "productAnalytics": "تحليلات المنتج",
+    "productAnalyticsDescription": "رؤى شاملة حول أداء منتجك ومقاييس المبيعات",
+    "last7Days": "آخر 7 أيام",
+    "last30Days": "آخر 30 يومًا",
+    "last90Days": "آخر 90 يومًا",
+    "customRange": "نطاق مخصص",
+    "filters": "مرشحات",
+    "byCategory": "حسب الفئة",
+    "byPriceRange": "حسب النطاق السعري",
+    "byStockLevel": "حسب مستوى المخزون",
+    "byPerformance": "حسب الأداء",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات"
+  },
+
+  "SalesAnalyticsPage": {
+    "pageTitle": "تحليلات المبيعات",
+    "pageDescription": "تتبع أداء مبيعاتك وحدد الاتجاهات الرئيسية.",
+    "totalRevenue": "إجمالي الإيرادات",
+    "totalOrders": "إجمالي الطلبات",
+    "averageOrderValue": "متوسط قيمة الطلب",
+    "returnRate": "معدل الإرجاع",
+    "allOrders": "جميع الطلبات",
+    "onlineOrders": "الطلبات عبر الإنترنت",
+    "storeOrders": "طلبات المتجر",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات",
+    "overview": "نظرة عامة",
+    "sales": "المبيعات",
+    "customers": "العملاء",
+    "geography": "جغرافية",
+    "last7Days": "آخر 7 أيام",
+    "last30Days": "آخر 30 يومًا",
+    "last90Days": "آخر 90 يومًا",
+    "lastYear": "العام الماضي",
+    "current": "الحالي",
+    "previous": "السابق",
+    "revenue": "الإيرادات",
+    "orders": "الطلبات",
+    "new": "جديد",
+    "returning": "عائد",
+    "customerSegmentation": "تقسيم العملاء",
+    "byType": "حسب النوع",
+    "byLocation": "حسب الموقع",
+    "topProducts": "أفضل المنتجات",
+    "salesByProduct": "المبيعات حسب المنتج",
+    "noDataAvailable": "لا توجد بيانات متاحة",
+    "lineChart": "مخطط خطي",
+    "barChart": "مخطط شريطي",
+    "pieChart": "مخطط دائري",
+
+    "OverviewTabContent": {
+      "revenueAndOrders": "الإيرادات والطلبات",
+      "revenueAndOrdersDescription": "عرض مجمّع لاتجاهات الإيرادات والطلبات.",
+      "filter": "فلتر",
+      "allChannels": "جميع القنوات",
+      "website": "موقع الويب",
+      "mobileApp": "تطبيق الهاتف المحمول",
+      "marketplace": "السوق",
+      "orders": "الطلبات",
+      "revenue": "الإيرادات",
+      "categoryDistribution": "توزيع الفئات",
+      "channelDistribution": "توزيع القنوات",
+      "orderFulfillment": "تنفيذ الطلبات",
+      "topSellingProducts": "المنتجات الأكثر مبيعًا",
+      "product": "المنتج",
+      "sales": "المبيعات",
+      "growth": "النمو",
+      "salesTrend": "اتجاه المبيعات",
+      "salesByChannel": "المبيعات حسب القناة",
+      "salesForecast": "توقعات المبيعات",
+      "actualSales": "المبيعات الفعلية"
+    }
+  },
+
+  "InventoryAnalyticsPage": {
+    "inventoryAnalytics": "تحليلات المخزون",
+    "inventoryAnalyticsDescription": "تتبع أداء المخزون ومستويات المخزون ومقاييس سلسلة التوريد",
+    "totalInventoryValue": "إجمالي قيمة المخزون",
+    "inventoryTurnover": "دوران المخزون",
+    "stockoutRate": "معدل نفاد المخزون",
+    "daysOfSupply": "أيام التوريد",
+    "last7Days": "آخر 7 أيام",
+    "last30Days": "آخر 30 يومًا",
+    "last90Days": "آخر 90 يومًا",
+    "customRange": "نطاق مخصص",
+    "warehouses": "المستودعات",
+    "allWarehouses": "جميع المستودعات",
+    "north": "الشمال",
+    "south": "الجنوب",
+    "east": "الشرق",
+    "west": "الغرب",
+    "central": "الوسط",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات"
+  },
+
+  "CustomerAnalyticsPage": {
+    "customerAnalyticsTitle": "تحليلات العملاء",
+    "customerAnalyticsDescription": "رؤى شاملة حول سلوك العملاء ومقاييس المشاركة",
+    "totalCustomers": "إجمالي العملاء",
+    "activeCustomers": "العملاء النشطون",
+    "avgLifetimeValue": "متوسط قيمة العميل الدائمة",
+    "churnRate": "معدل التسرب",
+    "last7Days": "آخر 7 أيام",
+    "last30Days": "آخر 30 يومًا",
+    "last90Days": "آخر 90 يومًا",
+    "customRange": "نطاق مخصص",
+    "segments": "شرائح",
+    "allSegments": "جميع الشرائح",
+    "loyalCustomers": "العملاء المخلصون",
+    "regularBuyers": "المشترون المنتظمون",
+    "occasionalShoppers": "المتسوقون العرضيون",
+    "newCustomers": "العملاء الجدد",
+    "atRiskCustomers": "العملاء المعرضون للخطر",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات"
+  },
+  "GeographicAnalysisPage": {
+    "geographicAnalysis": "تحليل جغرافي",
+    "geographicAnalysisDescription": "فهم توزيع مبيعاتك عبر مناطق مختلفة.",
+    "allRegions": "جميع المناطق",
+    "onlineSales": "المبيعات عبر الإنترنت",
+    "inStoreSales": "المبيعات في المتجر",
+    "last7Days": "آخر 7 أيام",
+    "last30Days": "آخر 30 يومًا",
+    "last90Days": "آخر 90 يومًا",
+    "customRange": "نطاق مخصص",
+    "filters": "مرشحات",
+    "byRegion": "حسب المنطقة",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات",
+    "geographicDistribution": "التوزيع الجغرافي",
+    "customerDistributionAndRevenueByRegion": "توزيع العملاء والإيرادات حسب المنطقة",
+    "viewMap": "عرض الخريطة",
+    "asiaShowingFastestGrowth": "آسيا تظهر أسرع نمو",
+    "regionalAnalysis": "تحليل إقليمي",
+    "customers": "العملاء",
+    "revenue": "الإيرادات",
+    "growth": "النمو",
+    "totalRegions": "إجمالي المناطق",
+    "mostPopularRegion": "المنطقة الأكثر شعبية",
+    "avgRevenuePerRegion": "متوسط الإيرادات لكل منطقة",
+    "GeographyTabContent": {
+      "fastestGrowingCities": "المدن الأسرع نموًا",
+      "city": "مدينة",
+      "orders": "الطلبات",
+      "growth": "النمو",
+      "orderDistributionByGovernorate": "توزيع الطلبات حسب المحافظة",
+      "hoverForDetails": "مرر للحصول على التفاصيل",
+      "low": "منخفض",
+      "high": "مرتفع",
+      "topGovernoratesByOrders": "أعلى المحافظات حسب الطلبات",
+      "topGovernoratesByRevenue": "أعلى المحافظات حسب الإيرادات"
+    }
+  },
+
+  "ReportBuilderPage": {
+    "reportTitle": "أداة إنشاء التقارير",
+    "description": "أنشئ وخصص تقريرك.",
+    "actions": {
+      "preview": "معاينة التقرير"
+    },
+
+    "PreviewModal": {
+      "title": "معاينة التقرير",
+      "downloadCSV": "تنزيل CSV",
+      "downloadPDF": "تنزيل PDF",
+      "buttons": {
+        "close": "إغلاق"
+      }
+    },
+
+    "ReportContent": {
+      "noElementsMessage": "لم تتم إضافة أي عناصر تقرير حتى الآن. أضف عناصر لبدء بناء تقريرك."
+    },
+
+    "AbilitiesPanel": {
+      "reportElements": "عناصر التقرير",
+      "customTable": "جدول مخصص",
+      "createNew": "إنشاء جديد",
+      "salesSummary": "ملخص المبيعات",
+      "inventoryStatus": "حالة المخزون"
+    },
+
+    "TableBuilderModal": {
+      "createTableHeader": "إنشاء جدول",
+      "createTableDescription": "قم بتكوين جدولك عن طريق اختيار مصدر بيانات وتطبيق عوامل تصفية.",
+      "dataSource": "مصدر البيانات",
+      "dataSourceStepDescription": "اختر مصدر البيانات لجدولك.",
+      "filters": "عوامل التصفية",
+      "filtersStepDescription": "قم بتكوين عوامل التصفية لتضييق نطاق البيانات.",
+
+      "DataSourceStep": {
+        "selectDataSource": "تحديد مصدر البيانات",
+        "dataSourceDescription": "اختر مصدر البيانات لجدولك.",
+        "dataSource": "مصدر البيانات",
+        "selectDataSourcePlaceholder": "حدد مصدر البيانات",
+        "availableFields": "الحقول المتاحة"
+      },
+
+      "FiltersStep": {
+        "noDataSourceSelected": "يرجى تحديد مصدر بيانات لتكوين عوامل التصفية.",
+        "configureFilters": "تكوين عوامل التصفية",
+        "filtersDescription": "طبق عوامل تصفية لتضييق نطاق البيانات في جدولك.",
+        "activeFilters": "عوامل التصفية النشطة",
+        "addFilter": "إضافة عامل تصفية",
+        "noFiltersAdded": "لم تتم إضافة أي عوامل تصفية حتى الآن.",
+        "field": "حقل",
+        "operator": "المعامل",
+        "equals": "يساوي",
+        "contains": "يحتوي على",
+        "greaterThan": "أكبر من",
+        "lessThan": "أقل من",
+        "value": "القيمة",
+        "enterValue": "أدخل القيمة",
+        "apiEndpointPreview": "معاينة نقطة نهاية API"
+      },
+
+      "cancel": "إلغاء",
+      "back": "رجوع",
+      "next": "التالي",
+      "createTable": "إنشاء جدول",
+
+      "useTableBuilderModal": {
+        "dataSource": "مصدر البيانات",
+        "dataSourceStepDescription": "حدد مصدر البيانات للجدول.",
+        "filters": "عوامل التصفية",
+        "filtersStepDescription": "حدد عوامل التصفية لتنقية البيانات.",
+        "orders": "الطلبات",
+        "orderId": "معرف الطلب",
+        "orderDate": "تاريخ الطلب",
+        "customer": "العميل",
+        "status": "الحالة",
+        "paymentStatus": "حالة الدفع",
+        "totalAmount": "المبلغ الإجمالي",
+        "tags": "العلامات",
+        "lastUpdated": "آخر تحديث",
+        "products": "المنتجات",
+        "productId": "معرف المنتج",
+        "name": "الاسم",
+        "description": "الوصف",
+        "category": "الفئة",
+        "price": "السعر",
+        "profitPercent": "نسبة الربح",
+        "mainImage": "الصورة الرئيسية",
+        "brand": "العلامة التجارية",
+        "schema": "المخطط",
+        "visibility": "الرؤية",
+        "createdDate": "تاريخ الإنشاء",
+        "customers": "العملاء",
+        "customerId": "معرف العميل",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "totalOrders": "إجمالي الطلبات",
+        "sellingPoints": "نقاط البيع",
+        "pointId": "معرف النقطة",
+        "location": "الموقع",
+        "manager": "المدير",
+        "totalSales": "إجمالي المبيعات"
+      }
+    },
+
+    "ReportTable": {
+      "dataSource": "مصدر البيانات",
+      "filtersApplied": "تم تطبيق عوامل التصفية",
+      "exportCSV": "تصدير",
+      "edit": "تحرير",
+      "delete": "حذف",
+      "errorLoadingData": "خطأ في تحميل البيانات.",
+      "noDataAvailable": "لا توجد بيانات متاحة."
+    }
+  },
+
+  "SettingsPage": {
+    "title": "الإعدادات",
+    "description": "إدارة تفضيلات وتكوينات التطبيق.",
+    "tabs": {
+      "appearance": "المظهر",
+      "general": "عام"
+    },
+    "exportSettings": {
+      "title": "إعدادات التصدير",
+      "formatPreferences": "تفضيلات التنسيق",
+      "defaultExportFormat": "تنسيق التصدير الافتراضي",
+      "defaultExportFormatDescription": "اختر التنسيق المفضل لعمليات التصدير",
+      "includeVisualizations": "تضمين التصورات",
+      "includeVisualizationsDescription": "تضمين الرسوم البيانية والمخططات في عمليات التصدير",
+      "includeRawData": "تضمين البيانات الأولية",
+      "includeRawDataDescription": "تضمين جداول البيانات الأولية في عمليات التصدير",
+      "deliveryOptions": "خيارات التسليم",
+      "emailExports": "تصدير عبر البريد الإلكتروني",
+      "emailExportsDescription": "إرسال عمليات التصدير تلقائيًا عبر البريد الإلكتروني عند الانتهاء",
+      "defaultRecipients": "المستلمون الافتراضيون",
+      "defaultRecipientsDescription": "المستلمون الافتراضيون لعمليات التصدير عبر البريد الإلكتروني",
+      "edit": "تحرير",
+      "saveToCloud": "حفظ في السحابة",
+      "saveToCloudDescription": "حفظ عمليات التصدير تلقائيًا في وحدة التخزين السحابية",
+      "exportQuotasLimits": "حصص وحدود التصدير",
+      "monthlyExportQuota": "حصة التصدير الشهرية",
+      "storageUsage": "استخدام التخزين",
+      "scheduledExports": "عمليات التصدير المجدولة",
+      "activeSchedules": "جداول نشطة",
+      "currentPlan": "الخطة الحالية",
+      "businessPlan": "خطة الأعمال",
+      "upgradePlan": "ترقية الخطة"
+    },
+    "formats": {
+      "excel": "Excel (XLSX)",
+      "csv": "CSV",
+      "pdf": "PDF",
+      "json": "JSON",
+      "excelDescription": "تنسيق جداول بيانات Microsoft Excel",
+      "csvDescription": "تنسيق القيم المفصولة بفواصل",
+      "pdfDescription": "تنسيق المستندات المحمولة",
+      "jsonDescription": "تنسيق تدوين كائن JavaScript"
+    },
+    "general": {
+      "defaultLanguage": "اللغة الافتراضية",
+      "timezone": "المنطقة الزمنية",
+      "dateFormat": "تنسيق التاريخ",
+      "defaultCurrency": "العملة الافتراضية"
+    },
+    "appearance": {
+      "theme": "النسق",
+      "themes": {
+        "light": "فاتح",
+        "dark": "داكن",
+        "system": "النظام"
+      },
+      "density": "الكثافة",
+      "densities": {
+        "comfortable": "مريح",
+        "compact": "مضغوط",
+        "spacious": "واسع"
+      },
+      "sidebarCollapsed": "طي الشريط الجانبي",
+      "colorScheme": "نظام الألوان",
+      "colorSchemes": {
+        "default": "افتراضي",
+        "blue": "أزرق",
+        "green": "أخضر",
+        "purple": "بنفسجي",
+        "amber": "كهرماني"
+      }
+    }
+  },
+
+  "AboutPage": {
+    "description": "يوفر Report360 نظرة عامة شاملة لأداء أعمالك، ويقدم رؤى قابلة للتنفيذ وتحليلات متقدمة لمساعدتك على اتخاذ قرارات مستنيرة.",
+    "features": {
+      "productAnalytics": {
+        "title": "تحليلات المنتج",
+        "description": "حلل أداء المنتج، وحدد الاتجاهات، وحسّن استراتيجية منتجك."
+      },
+      "salesAnalytics": {
+        "title": "تحليلات المبيعات",
+        "description": "تتبع أداء المبيعات، وراقب المقاييس الرئيسية، وحسّن فعالية المبيعات."
+      },
+      "inventoryAnalytics": {
+        "title": "تحليلات المخزون",
+        "description": "حسّن مستويات المخزون، وخفّض التكاليف، وحسّن كفاءة سلسلة التوريد."
+      },
+      "customerAnalytics": {
+        "title": "تحليلات العملاء",
+        "description": "افهم سلوك العملاء، وخصص التجارب، وابنِ علاقات أقوى."
+      },
+      "predictiveAnalytics": {
+        "title": "تحليلات تنبؤية",
+        "description": "تنبأ بالاتجاهات المستقبلية، وتوقع التغيرات في السوق، واتخذ قرارات استباقية."
+      },
+      "reportBuilder": {
+        "title": "أداة إنشاء التقارير المخصصة",
+        "description": "أنشئ تقارير مخصصة، وصوّر البيانات، وشارك الرؤى مع أصحاب المصلحة."
+      }
+    },
+    "changelogTitle": "آخر التحديثات",
+    "viewFullChangelog": "عرض سجل التغييرات الكامل",
+    "changelog": {
+      "geographicAnalysis": "ميزة التحليل الجغرافي",
+      "geographicAnalysisDesc": "صوّر البيانات على خرائط تفاعلية، وحدد الاتجاهات الإقليمية، وحسّن الاستراتيجيات الجغرافية.",
+      "aiAssistant": "مساعد الذكاء الاصطناعي المحسن",
+      "aiAssistantDesc": "احصل على توصيات ذكية، وأتمت المهام، وحسّن الكفاءة العامة.",
+      "inventoryValuation": "أدوات تقييم المخزون",
+      "inventoryValuationDesc": "احسب قيمة المخزون، وتتبع إهلاك الأصول، وحسّن الإدارة المالية.",
+      "reportBuilder": "أداة إنشاء التقارير المحسنة",
+      "reportBuilderDesc": "خصص التقارير بمزيد من المرونة، وأضف تصورات جديدة، وشارك الرؤى بسهولة.",
+      "forecastingBugfix": "إصلاح خطأ في التنبؤ",
+      "forecastingBugfixDesc": "تم حل مشكلة تسببت في نتائج تنبؤ غير دقيقة، مما أدى إلى تحسين دقة التنبؤ."
+    },
+    "keyCapabilities": "القدرات الرئيسية للتحليلات ورؤى الذكاء الاصطناعي",
+    "analyticsCapabilities": "قدرات التحليلات",
+    "productAnalyticsCapability": "تحليل أداء المنتج",
+    "salesAnalyticsCapability": "تتبع أداء المبيعات",
+    "inventoryAnalyticsCapability": "مقاييس ورؤى المخزون",
+    "customerAnalyticsCapability": "تحليل سلوك العملاء",
+    "geographicAnalysisCapability": "تحليل التوزيع الجغرافي",
+    "aiInsightsCapabilities": "قدرات رؤى الذكاء الاصطناعي",
+    "aiAssistantCapability": "مساعدة ذكية في التقارير",
+    "predictiveAnalyticsCapability": "توقعات التحليلات المتقدمة",
+    "trendAnalysisCapability": "تحليل اتجاهات السوق والأعمال",
+    "recommendationEngineCapability": "توصيات بيانات ذكية",
+    "businessIntelligenceCapability": "رؤى بيانات قابلة للتنفيذ",
+    "needHelp": "هل تحتاج مساعدة؟",
+    "supportDescription": "ابحث عن إجابات لأسئلتك، واستكشف الوثائق، واحصل على الدعم من فريقنا.",
+    "viewDocumentation": "عرض الوثائق",
+    "exportReports": "تصدير البيانات"
+  },
+
+  "FinancialAnalytics": {
+    "pageTitle": "تحليلات مالية",
+    "pageDescription": "نظرة شاملة على الأداء المالي والمقاييس الخاصة بك",
+    "daily": "يومي",
+    "weekly": "أسبوعي",
+    "monthly": "شهري",
+    "yearly": "سنوي",
+    "allTransactions": "جميع المعاملات",
+    "onlineTransactions": "المعاملات عبر الإنترنت",
+    "storeTransactions": "معاملات المتجر",
+    "exportReport": "تصدير التقرير",
+    "refreshData": "تحديث البيانات",
+    "exportAlertMessage": "جاري تصدير التقرير المالي...",
+    "errorMessage": "خطأ في تحميل البيانات المالية. يرجى المحاولة مرة أخرى لاحقاً.",
+    
+    "totalRevenue": "إجمالي الإيرادات",
+    "revenueDescription": "إجمالي الدخل من جميع المبيعات",
+    "totalProfit": "إجمالي الربح",
+    "profitDescription": "صافي الدخل بعد المصروفات",
+    "totalExpenses": "إجمالي المصروفات",
+    "expensesDescription": "جميع التكاليف المتكبدة في العمليات",
+    "totalTax": "إجمالي الضرائب",
+    "taxDescription": "إجمالي الضرائب المحصلة على المبيعات",
+    "totalRefunds": "إجمالي المبالغ المستردة",
+    "refundsDescription": "المبلغ المسترد للعملاء",
+    "paymentMethods": "طرق الدفع",
+    "paymentMethodsDescription": "التوزيع حسب نوع الدفع",
+    "invoicesPaid": "الفواتير المدفوعة",
+    "invoicesPaidDescription": "عدد الفواتير المدفوعة",
+    "invoicesUnpaid": "الفواتير غير المدفوعة",
+    "invoicesUnpaidDescription": "عدد الفواتير غير المدفوعة",
+    
+    "revenueAndProfit": "الإيرادات والأرباح",
+    "revenueAndProfitChart": "اتجاهات الإيرادات والأرباح",
+    "revenueAndProfitDescription": "مقارنة الإيرادات والأرباح والمصروفات بمرور الوقت",
+    "invoices": "الفواتير",
+    "invoicesComparisonChart": "مقارنة الفواتير",
+    "invoicesComparisonDescription": "مقارنة الفواتير المدفوعة مقابل غير المدفوعة بمرور الوقت",
+    "invoiceStatus": "حالة الفاتورة",
+    "invoiceStatusDescription": "توزيع الفواتير المدفوعة مقابل غير المدفوعة",
+    "refundsAndTaxes": "المبالغ المستردة والضرائب",
+    "refundsChart": "المبالغ المستردة بمرور الوقت",
+    "refundsDescription": "المبلغ المسترد للعملاء بمرور الوقت",
+    "taxChart": "الضرائب المحصلة",
+    "taxDescription": "مبالغ الضرائب المحصلة بمرور الوقت",
+    
+    "areaChart": "مساحة",
+    "lineChart": "خط",
+    "barChart": "شريط",
+    "revenue": "الإيرادات",
+    "profit": "الربح",
+    "expenses": "المصروفات",
+    "paidInvoices": "الفواتير المدفوعة",
+    "unpaidInvoices": "الفواتير غير المدفوعة",
+    "refundAmount": "مبلغ الاسترداد",
+    "taxAmount": "مبلغ الضريبة"
+  }
+}

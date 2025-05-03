@@ -1,0 +1,67 @@
+/* styles/theme.css */
+:root {
+    /* Base spacing variables */
+    --spacing-base: 1rem;
+    --font-size-base: 1rem;
+    
+    /* Default color scheme */
+    --primary: 124, 58, 237; /* #7C3AED - purple */
+    --primary-foreground: 255, 255, 255;
+    
+    --secondary: 236, 72, 153; /* #EC4899 - pink */
+    --secondary-foreground: 255, 255, 255;
+  }
+  
+  /* Density settings */
+  [data-density="compact"] {
+    --spacing-base: 0.75rem;
+    --font-size-base: 0.875rem;
+  }
+  
+  [data-density="comfortable"] {
+    --spacing-base: 1rem;
+    --font-size-base: 1rem;
+  }
+  
+  [data-density="spacious"] {
+    --spacing-base: 1.25rem;
+    --font-size-base: 1.125rem;
+  }
+  
+  /* Color schemes */
+  [data-color-scheme="blue"] {
+    --primary: 59, 130, 246; /* #3B82F6 */
+    --secondary: 6, 182, 212; /* #06B6D4 */
+  }
+  
+  [data-color-scheme="green"] {
+    --primary: 16, 185, 129; /* #10B981 */
+    --secondary: 139, 92, 246; /* #8B5CF6 */
+  }
+  
+  [data-color-scheme="purple"] {
+    --primary: 139, 92, 246; /* #8B5CF6 */
+    --secondary: 236, 72, 153; /* #EC4899 */
+  }
+  
+  [data-color-scheme="amber"] {
+    --primary: 245, 158, 11; /* #F59E0B */
+    --secondary: 6, 182, 212; /* #06B6D4 */
+  }
+  
+  /* Apply density to UI components */
+  .nextui-c-button {
+    padding-top: calc(var(--spacing-base) * 0.5);
+    padding-bottom: calc(var(--spacing-base) * 0.5);
+    font-size: var(--font-size-base);
+  }
+  
+  .nextui-c-input-container {
+    padding: calc(var(--spacing-base) * 0.5);
+  }
+  
+  .nextui-c-card-body {
+    padding: var(--spacing-base);
+  }
+  
+  /* And so on for other components */
