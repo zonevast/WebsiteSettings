@@ -454,6 +454,26 @@
     }
   },
 
+  "ThemeSettingsPage": {
+    "headerTitle": "Theme Settings",
+    "headerDescription": "Customize the appearance of your website with custom themes.",
+    "resetDefaults": "Reset Defaults",
+    "preview": "Preview",
+    "exitPreview": "Exit Preview",
+    "saveChanges": "Save Changes",
+    "themePreview": "Theme Preview",
+    "desktop": "Desktop",
+    "tablet": "Tablet",
+    "mobile": "Mobile",
+    "tabs": {
+      "colors": "Colors",
+      "typography": "Typography",
+      "layout": "Layout"
+    },
+    "themePresets": "Theme Presets",
+    "createCustomPreset": "Create Custom Preset"
+  },
+
   "SettingsPage": {
     "title": "Settings",
     "description": "Customize your experience.",
