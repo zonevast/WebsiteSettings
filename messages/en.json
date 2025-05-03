@@ -158,5 +158,69 @@
       "description": "This feature is currently under development. We are working hard to bring it to you as soon as possible.",
       "checkBackLater": "Check back later!"
     }
+  },
+
+
+  "HeaderSettingsPage": {
+    "headerTitle": "Header Settings",
+    "headerDescription": "Customize the appearance and functionality of your website header.",
+    "resetDefaults": "Reset Defaults",
+    "preview": "Preview",
+    "exitPreview": "Exit Preview",
+    "saveChanges": "Save Changes",
+    "tabs": {
+      "logo": "Logo",
+      "navigation": "Navigation",
+      "style": "Style"
+    },
+    "devicePreview": "Device Preview",
+    "desktopView": "Desktop View",
+    "mobileView": "Mobile View",
+    "desktopPreviewPlaceholder": "Desktop Header Preview",
+    "mobilePreviewPlaceholder": "Mobile Header Preview",
+    "templates": "Templates",
+    "templateName": "Template {id}",
+    "browseMoreTemplates": "Browse More Templates"
+  },
+
+  "SettingsPage": {
+    "title": "Settings",
+    "description": "Customize your experience.",
+
+    "tabs": {
+      "general": "General",
+      "appearance": "Appearance"
+
+    },
+    "general": {
+      "defaultLanguage": "Default Language",
+      "timezone": "Timezone",
+      "dateFormat": "Date Format",
+      "defaultCurrency": "Default Currency"
+    },
+
+    "appearance": {
+      "theme": "Theme",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      },
+      "density": "Density",
+      "densities": {
+        "comfortable": "Comfortable",
+        "compact": "Compact",
+        "spacious": "Spacious"
+      },
+      "sidebarCollapsed": "Collapse Sidebar",
+      "colorScheme": "Color Scheme",
+      "colorSchemes": {
+        "default": "Default",
+        "blue": "Blue",
+        "green": "Green",
+        "purple": "Purple",
+        "amber": "Amber"
+      }
+    }
   }
 }

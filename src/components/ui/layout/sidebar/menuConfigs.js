@@ -41,21 +41,21 @@ const useMenuItems = () => {
 
     layoutItems: [
       {
-        href: "/layout-header",
+        href: "/layout/header",
         label: t("layoutItems.header.label"),
         icon: Navigation,
         description:
           t("layoutItems.header.description"),
       },
       {
-        href: "/layout-footer",
+        href: "/layout/footer",
         label: t("layoutItems.footer.label"),
         icon: Globe,
         description:
           t("layoutItems.footer.description"),
       },
       {
-        href: "/layout-theme",
+        href: "/layout/theme",
         label: t("layoutItems.theme.label"),
         icon: Palette,
         description:
