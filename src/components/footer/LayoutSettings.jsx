@@ -15,7 +15,7 @@ import {
 import { Layout, Columns, AlignLeft, AlignCenter, AlignRight } from "lucide-react";
 
 const LayoutSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("FooterSettings.layoutSettings");
+  const t = useTranslations("FooterSettingsPage.layoutSettings");
   
   return (
     <div className="space-y-6">

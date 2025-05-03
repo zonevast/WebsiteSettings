@@ -37,7 +37,7 @@ import {
 } from "lucide-react";
 
 const SocialSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("FooterSettings.socialSettings");
+  const t = useTranslations("FooterSettingsPage.socialSettings");
   const [editingSocial, setEditingSocial] = useState(null);
   const [newSocial, setNewSocial] = useState({ platform: "", url: "", isVisible: true });
   

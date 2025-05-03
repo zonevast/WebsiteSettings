@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const FooterPreview = ({ settings }) => {
-  const t = useTranslations("FooterSettings.preview");
+  const t = useTranslations("FooterSettingsPage.preview");
   
   const socialIcons = {
     facebook: Facebook,

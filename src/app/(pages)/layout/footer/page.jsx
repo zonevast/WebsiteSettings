@@ -12,7 +12,7 @@ import {
   Columns,
   Link as LinkIcon,
   Copyright,
-  
+  Share2,
 } from "lucide-react";
 import FooterPreview from "@/components/footer/FooterPreview";
 import LayoutSettings from "@/components/footer/LayoutSettings";
@@ -21,7 +21,7 @@ import SocialSettings from "@/components/footer/SocialSettings";
 import { useFooterSettings } from "./useFooterSettings";
 
 const FooterSettingsPage = () => {
-  const t = useTranslations("FooterSettings");
+  const t = useTranslations("FooterSettingsPage");
   const {
     footerSettings,
     updateFooterSettings,
@@ -82,7 +82,7 @@ const FooterSettingsPage = () => {
             variant="flat"
             onPress={togglePreviewMode}
           >
-            {previewMode ? t("exitPreview") : t("preview")}
+            {previewMode ? t("exitPreview") : t("previewBtn")}
           </Button>
           <Button
             color="primary"
@@ -144,7 +144,7 @@ const FooterSettingsPage = () => {
             key="social"
             title={
               <div className="flex items-center gap-2">
-                <Social size={18} />
+                <Share2 size={18} />
                 <span>{t("tabs.social")}</span>
               </div>
             }
