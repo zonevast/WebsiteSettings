@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 
 const LayoutSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("ThemeSettings.layoutSettings");
+  const t = useTranslations("ThemeSettingsPage.layoutSettings");
   
   const handleContainerWidthChange = (value, breakpoint) => {
     updateSettings({

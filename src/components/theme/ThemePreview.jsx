@@ -51,7 +51,7 @@ import {
 } from "lucide-react";
 
 const ThemePreview = ({ settings, device }) => {
-  const t = useTranslations("ThemeSettings.preview");
+  const t = useTranslations("ThemeSettingsPage.preview");
   const activeMode = settings.defaultToDarkMode ? "darkMode" : "lightMode";
   const colors = settings[activeMode];
   

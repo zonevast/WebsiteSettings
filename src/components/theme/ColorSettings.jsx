@@ -31,7 +31,7 @@ import {
 import { HexColorPicker } from "react-colorful";
 
 const ColorSettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("ThemeSettings.colorSettings");
+  const t = useTranslations("ThemeSettingsPage.colorSettings");
   const [activeColorMode, setActiveColorMode] = useState("light");
   const [pickerColor, setPickerColor] = useState("#000000");
   const [pickerTarget, setPickerTarget] = useState(null);

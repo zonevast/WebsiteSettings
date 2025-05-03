@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 
 const TypographySettings = ({ settings, updateSettings }) => {
-  const t = useTranslations("ThemeSettings.typographySettings");
+  const t = useTranslations("ThemeSettingsPage.typographySettings");
   
   const handleFontFamilyChange = (e, type) => {
     updateSettings({

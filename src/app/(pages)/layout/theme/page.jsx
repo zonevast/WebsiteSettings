@@ -110,7 +110,7 @@ const ThemeSettingsPage = () => {
             variant="flat"
             onPress={togglePreviewMode}
           >
-            {previewMode ? t("exitPreview") : t("preview")}
+            {previewMode ? t("exitPreview") : t("previewBtn")}
           </Button>
           <Button
             color="primary"
