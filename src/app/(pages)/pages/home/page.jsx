@@ -110,7 +110,7 @@ const HomePage = () => {
                     title={
                       <div className="flex items-center gap-2">
                         <Layout size={18} />
-                        <span>{t("heroSection")}</span>
+                        <span>{t("heroSectionTab")}</span>
                       </div>
                     }
                   />
@@ -137,7 +137,7 @@ const HomePage = () => {
                     title={
                       <div className="flex items-center gap-2">
                         <Type size={18} />
-                        <span>{t("testimonials")}</span>
+                        <span>{t("testimonialsTab")}</span>
                       </div>
                     }
                   />
@@ -146,7 +146,7 @@ const HomePage = () => {
                     title={
                       <div className="flex items-center gap-2">
                         <ImageIcon size={18} />
-                        <span>{t("ctaSection")}</span>
+                        <span>{t("ctaSectionTab")}</span>
                       </div>
                     }
                   />
