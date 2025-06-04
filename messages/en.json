@@ -1127,6 +1127,46 @@
     }
   },
 
+  "AboutPageSettings":{
+  "title": "About Page Settings",
+  "aboutPageSettings": "About Page Settings",
+  "aboutPageDescription": "Manage the content and appearance of your About page.",
+  "pageTitle": "Page Title",
+  "pageContent": "Page Content",
+  "backgroundImage": "Background Image",
+  "backgroundColor": "Background Color",
+  "textColor": "Text Color",
+  "teamMembersSection": "Team Members",
+  "teamMember": "Team Member",
+  "memberName": "Name",
+  "memberTitle": "Title",
+  "memberBio": "Bio",
+  "memberImage": "Member Image",
+  "removeMember": "Remove Member",
+  "addTeamMember": "Add Team Member",
+  "resetToDefaults": "Reset to Defaults",
+  "saveChanges": "Save Changes",
+  "settingsSavedSuccess": "Settings saved successfully!",
+  "settingsSaveError": "Error saving settings. Please try again."
+},
+
+  "ContactPage": {
+    "title": "Contact Us",
+    "getInTouch": "Get in Touch",
+    "contactPageDescription": "We'd love to hear from you. Please fill out the form below or reach out to us directly.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "submitting": "Submitting...",
+    "submissionSuccessMessage": "Your message has been sent. Thank you!",
+    "submissionErrorMessage": "There was an error sending your message. Please try again.",
+    "address": "Address",
+    "phone": "Phone",
+    "contactUs": "Contact Us"
+  },
+
   "SettingsPage": {
     "title": "Settings",
     "description": "Customize your experience.",
