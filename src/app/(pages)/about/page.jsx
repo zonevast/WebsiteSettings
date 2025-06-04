@@ -10,27 +10,17 @@ import {
   Link,
   Button,
   ScrollShadow,
-  Progress,
 } from "@nextui-org/react";
 import {
-  BarChart,
-  LineChart,
-  Gauge,
+  Globe,
+  Database,
+  Palette,
+  Layers,
   Users,
-  Map,
-  Bot,
-  BrainCircuit,
-  ArrowUpDown,
-  Lightbulb,
-  Cpu,
-  Coins,
-  PieChart,
-  Sparkles,
-  Download,
+  Search,
   Shield,
-  Star,
-  Bug,
-  FileText,
+  ArrowUpDown,
+  Sparkles,
 } from "lucide-react";
 import { containerVariants, itemVariants } from "@/components/animations";
 import FeatureCard from "@/components/about/FeatureCard";
@@ -46,87 +36,87 @@ const AboutPage = () => {
   const isArabic = language === "ar";
 
   const currentVersion = {
-    number: "2.1.0",
-    codename: "InsightEngine",
+    number: "1.0.0",
+    codename: "SiteMaster",
     releaseDate: "2025-03-15",
   };
 
   const features = [
     {
-      icon: <BarChart className="w-5 h-5" />,
-      title: t("features.productAnalytics.title"),
-      description: t("features.productAnalytics.description"),
+      icon: <Globe className="w-5 h-5" />,
+      title: t("features.languageSupport.title"),
+      description: t("features.languageSupport.description"),
     },
     {
-      icon: <LineChart className="w-5 h-5" />,
-      title: t("features.salesAnalytics.title"),
-      description: t("features.salesAnalytics.description"),
+      icon: <Database className="w-5 h-5" />,
+      title: t("features.backupRestore.title"),
+      description: t("features.backupRestore.description"),
     },
     {
-      icon: <Gauge className="w-5 h-5" />,
-      title: t("features.inventoryAnalytics.title"),
-      description: t("features.inventoryAnalytics.description"),
+      icon: <Palette className="w-5 h-5" />,
+      title: t("features.themeCustomization.title"),
+      description: t("features.themeCustomization.description"),
+    },
+    {
+      icon: <Layers className="w-5 h-5" />,
+      title: t("features.templateManagement.title"),
+      description: t("features.templateManagement.description"),
     },
     {
       icon: <Users className="w-5 h-5" />,
-      title: t("features.customerAnalytics.title"),
-      description: t("features.customerAnalytics.description"),
+      title: t("features.userSecurityManagement.title"),
+      description: t("features.userSecurityManagement.description"),
     },
     {
-      icon: <BrainCircuit className="w-5 h-5" />,
-      title: t("features.predictiveAnalytics.title"),
-      description: t("features.predictiveAnalytics.description"),
-    },
-    {
-      icon: <PieChart className="w-5 h-5" />,
-      title: t("features.reportBuilder.title"),
-      description: t("features.reportBuilder.description"),
+      icon: <Search className="w-5 h-5" />,
+      title: t("features.seoOptimization.title"),
+      description: t("features.seoOptimization.description"),
     },
   ];
 
   const changelog = [
     {
+      type: "improvement",
+      title: t("changelog.performanceImprovements"),
+      description: t("changelog.performanceImprovementsDesc"),
+      icon: <ArrowUpDown className="w-4 h-4 text-primary" />,
+      date: "2025-05-20",
+    },
+    {
       type: "feature",
-      title: t("changelog.geographicAnalysis"),
-      description: t("changelog.geographicAnalysisDesc"),
-      icon: <Map className="w-4 h-4 text-primary" />,
+      title: t("changelog.seoSettingsAdded"),
+      description: t("changelog.seoSettingsAddedDesc"),
+      icon: <Search className="w-4 h-4 text-success" />,
+      date: "2025-05-01",
+    },
+    {
+      type: "feature",
+      title: t("changelog.securityModule"),
+      description: t("changelog.securityModuleDesc"),
+      icon: <Shield className="w-4 h-4 text-primary" />,
+      date: "2025-04-30",
+    },
+    {
+      type: "feature",
+      title: t("changelog.themeEditor"),
+      description: t("changelog.themeEditorDesc"),
+      icon: <Palette className="w-4 h-4 text-success" />,
+      date: "2025-04-10",
+    },
+    {
+      type: "feature",
+      title: t("changelog.initialRelease"),
+      description: t("changelog.initialReleaseDesc"),
+      icon: <Sparkles className="w-4 h-4 text-primary" />,
       date: "2025-03-15",
-    },
-    {
-      type: "improvement",
-      title: t("changelog.aiAssistant"),
-      description: t("changelog.aiAssistantDesc"),
-      icon: <Bot className="w-4 h-4 text-success" />,
-      date: "2025-02-20",
-    },
-    {
-      type: "feature",
-      title: t("changelog.inventoryValuation"),
-      description: t("changelog.inventoryValuationDesc"),
-      icon: <Coins className="w-4 h-4 text-primary" />,
-      date: "2025-01-30",
-    },
-    {
-      type: "improvement",
-      title: t("changelog.reportBuilder"),
-      description: t("changelog.reportBuilderDesc"),
-      icon: <Sparkles className="w-4 h-4 text-success" />,
-      date: "2025-01-15",
-    },
-    {
-      type: "bugfix",
-      title: t("changelog.forecastingBugfix"),
-      description: t("changelog.forecastingBugfixDesc"),
-      icon: <Bug className="w-4 h-4 text-danger" />,
-      date: "2025-01-05",
     },
   ];
 
   const statistics = [
-    { label: "Reports Generated", value: "50,000+" },
-    { label: "Active Users", value: "2,500+" },
-    { label: "Data Points Analyzed", value: "1B+" },
-    { label: "Prediction Accuracy", value: "94.7%" },
+    { label: t("statistics.sitesManaged.label"), value: "1,200+" },
+    { label: t("statistics.languagesSupported.label"), value: "25" },
+    { label: t("statistics.backupsCreated.label"), value: "10,000+" },
+    { label: t("statistics.activeAdmins.label"), value: "500+" },
   ];
 
   return (
@@ -139,13 +129,13 @@ const AboutPage = () => {
       {/* Header Section */}
       <motion.div variants={itemVariants} className="text-center space-y-4">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Report360 {currentVersion.number}
+          {t("title")} {currentVersion.number}
         </h1>
         <div className="flex justify-center gap-3 flex-wrap">
           <Chip
             variant="flat"
             color="primary"
-            startContent={<Star className="w-4 h-4" />}
+            startContent={<Sparkles className="w-4 h-4" />}
           >
             {currentVersion.codename}
           </Chip>
@@ -155,7 +145,7 @@ const AboutPage = () => {
             color="success"
             startContent={<Shield className="w-4 h-4" />}
           >
-            Enterprise Ready
+            {t("enterpriseReady")}
           </Chip>
         </div>
         <p className="text-default-600 max-w-2xl mx-auto">{t("description")}</p>
@@ -237,84 +227,6 @@ const AboutPage = () => {
         </Card>
       </motion.div>
 
-      {/* Analytics & AI Insights Section */}
-      <motion.div variants={itemVariants} className="space-y-4">
-        <h2 className="text-2xl font-semibold text-center">
-          {t("keyCapabilities")}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="border border-default-200">
-            <CardBody className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <BarChart className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold">
-                  {t("analyticsCapabilities")}
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <BarChart className="w-4 h-4 text-primary" />
-                  <span>{t("productAnalyticsCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <LineChart className="w-4 h-4 text-primary" />
-                  <span>{t("salesAnalyticsCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Gauge className="w-4 h-4 text-primary" />
-                  <span>{t("inventoryAnalyticsCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-primary" />
-                  <span>{t("customerAnalyticsCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Map className="w-4 h-4 text-primary" />
-                  <span>{t("geographicAnalysisCapability")}</span>
-                </li>
-              </ul>
-            </CardBody>
-          </Card>
-
-          <Card className="border border-default-200">
-            <CardBody className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <BrainCircuit className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold">
-                  {t("aiInsightsCapabilities")}
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Bot className="w-4 h-4 text-primary" />
-                  <span>{t("aiAssistantCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <BrainCircuit className="w-4 h-4 text-primary" />
-                  <span>{t("predictiveAnalyticsCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowUpDown className="w-4 h-4 text-primary" />
-                  <span>{t("trendAnalysisCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Lightbulb className="w-4 h-4 text-primary" />
-                  <span>{t("recommendationEngineCapability")}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-primary" />
-                  <span>{t("businessIntelligenceCapability")}</span>
-                </li>
-              </ul>
-            </CardBody>
-          </Card>
-        </div>
-      </motion.div>
-
       {/* Support Section */}
       <motion.div variants={itemVariants} className="text-center space-y-4">
         <h2 className="text-2xl font-semibold">{t("needHelp")}</h2>
@@ -327,17 +239,11 @@ const AboutPage = () => {
             href="/documentation"
             variant="flat"
             color="primary"
-            startContent={<FileText className="w-4 h-4" />}
           >
             {t("viewDocumentation")}
           </Button>
-          <Button
-            as={Link}
-            href="/export-data"
-            color="primary"
-            startContent={<Download className="w-4 h-4" />}
-          >
-            {t("exportReports")}
+          <Button as={Link} href="/export-settings" color="primary">
+            {t("exportSettings")}
           </Button>
         </div>
       </motion.div>

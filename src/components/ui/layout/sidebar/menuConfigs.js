@@ -1,4 +1,3 @@
-
 import {
   LayoutDashboard,
   Settings as LucideSettings,
@@ -66,7 +65,9 @@ const useMenuItems = () => {
     contentItems: [
       {
         href: "/pages/home",
-        label: t("contentItems.homePage.label") || "Home Page",
+        label:
+          t("contentItems.homePage.label") ||
+          "Home Page",
         icon: Home,
         description:
           t("contentItems.homePage.description") ||
@@ -74,7 +75,9 @@ const useMenuItems = () => {
       },
       {
         href: "/pages/about",
-        label: t("contentItems.aboutPage.label") || "About Page",
+        label:
+          t("contentItems.aboutPage.label") ||
+          "About Page",
         icon: Info,
         description:
           t("contentItems.aboutPage.description") ||
@@ -82,7 +85,9 @@ const useMenuItems = () => {
       },
       {
         href: "/pages/contact",
-        label: t("contentItems.contactPage.label") || "Contact Page",
+        label:
+          t("contentItems.contactPage.label") ||
+          "Contact Page",
         icon: Phone,
         description:
           t("contentItems.contactPage.description") ||
@@ -93,7 +98,9 @@ const useMenuItems = () => {
     templateItems: [
       {
         href: "/templates-store",
-        label: t("templateItems.templateStore.label") || "Template Store",
+        label:
+          t("templateItems.templateStore.label") ||
+          "Template Store",
         icon: Layers,
         description:
           t("templateItems.templateStore.description") ||
@@ -124,7 +131,9 @@ const useMenuItems = () => {
     ecommerceItems: [
       {
         href: "/ecommerce-checkout",
-        label: t("ecommerceItems.checkout.label") || "Checkout",
+        label:
+          t("ecommerceItems.checkout.label") ||
+          "Checkout",
         icon: CreditCard,
         description:
           t("ecommerceItems.checkout.description") ||
@@ -132,7 +141,9 @@ const useMenuItems = () => {
       },
       {
         href: "/ecommerce-shipping",
-        label: t("ecommerceItems.shipping.label") || "Shipping",
+        label:
+          t("ecommerceItems.shipping.label") ||
+          "Shipping",
         icon: Truck,
         description:
           t("ecommerceItems.shipping.description") ||
@@ -140,7 +151,9 @@ const useMenuItems = () => {
       },
       {
         href: "/ecommerce-cart",
-        label: t("ecommerceItems.cart.label") || "Shopping Cart",
+        label:
+          t("ecommerceItems.cart.label") ||
+          "Shopping Cart",
         icon: ShoppingCart,
         description:
           t("ecommerceItems.cart.description") ||
@@ -148,71 +161,87 @@ const useMenuItems = () => {
       },
       {
         href: "/ecommerce-comments",
-        label: t("blogItems.comments.label") || "Comments",
+        label:
+          t("ecommerceItems.comments.label") ||
+          "Comments",
         icon: MessageSquare,
         description:
-          t("blogItems.comments.description") ||
-          "Moderate blog comments",
+          t("ecommerceItems.comments.description") ||
+          "Moderate ecommerce comments",
       },
     ],
 
-
-
-    generalItems: [
+    settingsItems: [
+      {
+        href: "/languages",
+        label:
+          t("settingsItems.languages.label") ||
+          "Languages",
+        icon: Languages,
+        description:
+          t("settingsItems.languages.description") ||
+          "Configure site translations",
+      },
       {
         href: "/settings",
         label:
-          t("generalItems.generalSettings.label") ||
+          t("settingsItems.generalSettings.label") ||
           "General Settings",
         icon: LucideSettings,
         description:
-          t("generalItems.generalSettings.description") ||
+          t("settingsItems.generalSettings.description") ||
           "Basic website configuration",
       },
+
+
+      {
+        href: "/about",
+        label: t("settingsItems.about.label"),
+        icon: Info,
+        description: t("settingsItems.about.description"),
+      }
+
+    ],
+
+    maintenanceItems: [
       // {
       //   href: "/settings-seo",
-      //   label: t("generalItems.seo.label") || "SEO Settings",
+      //   label:
+      //     t("settingsItems.seo.label") ||
+      //     "SEO Settings",
       //   icon: Search,
       //   description:
-      //     t("generalItems.seo.description") ||
+      //     t("settingsItems.seo.description") ||
       //     "Search engine optimization",
       // },
       // {
       //   href: "/settings-users",
-      //   label: t("generalItems.users.label") || "User Management",
+      //   label:
+      //     t("settingsItems.users.label") ||
+      //     "User Management",
       //   icon: Users,
       //   description:
-      //     t("generalItems.users.description") ||
+      //     t("settingsItems.users.description") ||
       //     "Manage website administrators",
       // },
-      {
-        href: "/languages",
-        label:
-          t("generalItems.languages.label") ||
-          "Languages",
-        icon: Languages,
-        description:
-          t("generalItems.languages.description") ||
-          "Configure site translations",
-      },
       // {
       //   href: "/settings-security",
       //   label:
-      //     t("generalItems.security.label") ||
+      //     t("settingsItems.security.label") ||
       //     "Security",
       //   icon: Shield,
       //   description:
-      //     t("generalItems.security.description") ||
+      //     t("settingsItems.security.description") ||
       //     "Website security settings",
       // },
       {
         href: "/backup",
         label:
-          t("generalItems.backup.label") ||
+          t("maintenanceItems.backup.label") ||
           "Backup & Restore",
         icon: Database,
         description:
-          t("generalItems.backup.description") ||
+          t("maintenanceItems.backup.description") ||
           "Manage website backups",
       },
     ],
@@ -220,5 +249,3 @@ const useMenuItems = () => {
 };
 
 export default useMenuItems;
-
-

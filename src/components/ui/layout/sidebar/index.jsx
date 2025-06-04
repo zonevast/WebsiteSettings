@@ -28,7 +28,7 @@ export default function Sidebar() {
     contentItems,
     templateItems,
     ecommerceItems,
-    generalItems,
+    settingsItems,
   } = menuItems;
 
   // Toggle the sidebar collapse state in the store
@@ -202,7 +202,7 @@ export default function Sidebar() {
         {renderMenuSection(contentItems, "sections.content")}
         {renderMenuSection(templateItems, "sections.templates")}
         {/* {renderMenuSection(ecommerceItems, "sections.ecommerce")} */}
-        {renderMenuSection(generalItems, "sections.generalItems")}
+        {renderMenuSection(settingsItems, "sections.generalItems")}
       </div>
     </motion.div>
   );
