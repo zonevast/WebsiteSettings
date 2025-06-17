@@ -27,56 +27,8 @@ import {
   XCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { mockInstalledTemplates } from "./data";
 
-// Mock Installed Templates Data (replace with your actual data fetching)
-const mockInstalledTemplates = [
-  {
-    id: 1,
-    name: "Modern Agency",
-    description:
-      "A sleek and modern website template for creative agencies. Features a clean design, responsive layout, and easy customization.",
-    imageUrl: "/images/template-1.jpg", // Replace with actual image paths
-    tags: ["agency", "creative", "modern"],
-    status: "active", // "active", "inactive", "updating", "error"
-  },
-  {
-    id: 2,
-    name: "E-commerce Storefront",
-    description:
-      "A fully functional e-commerce template with product listings, shopping cart, and checkout functionality.",
-    imageUrl: "/images/template-2.jpg",
-    tags: ["ecommerce", "store", "online"],
-    status: "inactive",
-  },
-  {
-    id: 3,
-    name: "Personal Portfolio",
-    description:
-      "A clean and elegant portfolio template to showcase your work. Includes sections for projects, skills, and contact information.",
-    imageUrl: "/images/template-3.jpg",
-    tags: ["portfolio", "personal", "creative"],
-    status: "active",
-  },
-  {
-    id: 4,
-    name: "Blog Template",
-    description:
-      "A clean and functional blog template to share your thoughts and ideas. Includes post listings, categories, and a comments section.",
-    imageUrl: "/images/template-4.jpg",
-    tags: ["blog", "news", "content"],
-    status: "updating",
-  },
-  {
-    id: 5,
-    name: "Restaurant Website",
-    description:
-      "A visually appealing website for restaurants. Includes menu display, online ordering, and contact information.",
-    imageUrl: "/images/template-5.jpg",
-    tags: ["restaurant", "food", "menu"],
-    status: "error",
-  },
-  // Add more mock templates as needed
-];
 
 const TemplatesInstalled = () => {
   const t = useTranslations("TemplatesInstalled");
