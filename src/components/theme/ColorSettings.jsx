@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import { 
-  Input, 
-  Switch, 
-  Card, 
+import {
+  Input,
+  Switch,
+  Card,
   CardBody,
   Button,
   Tabs,
@@ -14,19 +14,19 @@ import {
   PopoverTrigger,
   PopoverContent,
   Accordion,
-  AccordionItem
+  AccordionItem,
 } from "@nextui-org/react";
-import { 
-  Sun, 
-  Moon, 
-  Copy, 
-  Check, 
-  Droplet, 
-  Palette, 
+import {
+  Sun,
+  Moon,
+  Copy,
+  Check,
+  Droplet,
+  Palette,
   Plus,
   Trash2,
   RefreshCw,
-  Info
+  Info,
 } from "lucide-react";
 import { HexColorPicker } from "react-colorful";
 
@@ -36,89 +36,91 @@ const ColorSettings = ({ settings, updateSettings }) => {
   const [pickerColor, setPickerColor] = useState("#000000");
   const [pickerTarget, setPickerTarget] = useState(null);
   const [copiedColor, setCopiedColor] = useState(null);
-  
+
   const handleColorChange = (color, target) => {
     if (activeColorMode === "light") {
       updateSettings({
         lightMode: {
           ...settings.lightMode,
-          [target]: color
-        }
+          [target]: color,
+        },
       });
     } else {
       updateSettings({
         darkMode: {
           ...settings.darkMode,
-          [target]: color
-        }
+          [target]: color,
+        },
       });
     }
   };
-  
+
   const handleInputColorChange = (e, target) => {
     handleColorChange(e.target.value, target);
   };
-  
+
   const openColorPicker = (color, target) => {
     setPickerColor(color);
     setPickerTarget(target);
   };
-  
+
   const handlePickerChange = (color) => {
     setPickerColor(color);
     handleColorChange(color, pickerTarget);
   };
-  
+
   const copyColorToClipboard = (color) => {
     navigator.clipboard.writeText(color);
     setCopiedColor(color);
     setTimeout(() => setCopiedColor(null), 2000);
   };
-  
+
   const generateShades = (baseColor, target) => {
     // Convert hex to RGB
-    const hex = baseColor.replace('#', '');
+    const hex = baseColor.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
-    
+
     // Generate 9 shades (50-900)
     const shades = {};
     const intensities = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
-    
+
     intensities.forEach((intensity, index) => {
       const factor = index / (intensities.length - 1);
       const targetR = Math.round(r * (1 - factor * 0.8));
       const targetG = Math.round(g * (1 - factor * 0.8));
       const targetB = Math.round(b * (1 - factor * 0.8));
-      
-      const hexColor = '#' + 
-        targetR.toString(16).padStart(2, '0') + 
-        targetG.toString(16).padStart(2, '0') + 
-        targetB.toString(16).padStart(2, '0');
-      
+
+      const hexColor =
+        "#" +
+        targetR.toString(16).padStart(2, "0") +
+        targetG.toString(16).padStart(2, "0") +
+        targetB.toString(16).padStart(2, "0");
+
       shades[intensity] = hexColor;
     });
-    
+
     if (activeColorMode === "light") {
       updateSettings({
         lightMode: {
           ...settings.lightMode,
-          [`${target}Shades`]: shades
-        }
+          [`${target}Shades`]: shades,
+        },
       });
     } else {
       updateSettings({
         darkMode: {
           ...settings.darkMode,
-          [`${target}Shades`]: shades
-        }
+          [`${target}Shades`]: shades,
+        },
       });
     }
   };
-  
-  const currentModeSettings = activeColorMode === "light" ? settings.lightMode : settings.darkMode;
-  
+
+  const currentModeSettings =
+    activeColorMode === "light" ? settings.lightMode : settings.darkMode;
+
   return (
     <div className="space-y-6">
       <div className="flex justify-center mb-6">
@@ -154,7 +156,7 @@ const ColorSettings = ({ settings, updateSettings }) => {
           />
         </Tabs>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Primary Colors */}
         <Card>
@@ -167,31 +169,50 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 </Button>
               </Tooltip>
             </div>
-            
+
             <div className="space-y-4">
               {/* Primary Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("primaryColor")}</label>
+                  <label className="text-sm font-medium">
+                    {t("primaryColor")}
+                  </label>
                   <div className="flex items-center gap-1">
                     <Tooltip content={t("generateShades")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => generateShades(currentModeSettings.primaryColor, 'primary')}
+                        onPress={() =>
+                          generateShades(
+                            currentModeSettings.primaryColor,
+                            "primary"
+                          )
+                        }
                       >
                         <Droplet size={16} />
                       </Button>
                     </Tooltip>
-                    <Tooltip content={copiedColor === currentModeSettings.primaryColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.primaryColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.primaryColor)}
+                        onPress={() =>
+                          copyColorToClipboard(currentModeSettings.primaryColor)
+                        }
                       >
-                        {copiedColor === currentModeSettings.primaryColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.primaryColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
@@ -199,17 +220,28 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.primaryColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.primaryColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'primaryColor' ? pickerColor : currentModeSettings.primaryColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "primaryColor"
+                              ? pickerColor
+                              : currentModeSettings.primaryColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.primaryColor, 'primaryColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.primaryColor,
+                              "primaryColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -217,35 +249,56 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.primaryColor}
-                    onChange={(e) => handleInputColorChange(e, 'primaryColor')}
+                    onChange={(e) => handleInputColorChange(e, "primaryColor")}
                     className="flex-grow"
                   />
                 </div>
               </div>
-              
+
               {/* Secondary Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("secondaryColor")}</label>
+                  <label className="text-sm font-medium">
+                    {t("secondaryColor")}
+                  </label>
                   <div className="flex items-center gap-1">
                     <Tooltip content={t("generateShades")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => generateShades(currentModeSettings.secondaryColor, 'secondary')}
+                        onPress={() =>
+                          generateShades(
+                            currentModeSettings.secondaryColor,
+                            "secondary"
+                          )
+                        }
                       >
                         <Droplet size={16} />
                       </Button>
                     </Tooltip>
-                    <Tooltip content={copiedColor === currentModeSettings.secondaryColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.secondaryColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.secondaryColor)}
+                        onPress={() =>
+                          copyColorToClipboard(
+                            currentModeSettings.secondaryColor
+                          )
+                        }
                       >
-                        {copiedColor === currentModeSettings.secondaryColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.secondaryColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
@@ -253,17 +306,28 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.secondaryColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.secondaryColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'secondaryColor' ? pickerColor : currentModeSettings.secondaryColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "secondaryColor"
+                              ? pickerColor
+                              : currentModeSettings.secondaryColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.secondaryColor, 'secondaryColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.secondaryColor,
+                              "secondaryColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -271,35 +335,56 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.secondaryColor}
-                    onChange={(e) => handleInputColorChange(e, 'secondaryColor')}
+                    onChange={(e) =>
+                      handleInputColorChange(e, "secondaryColor")
+                    }
                     className="flex-grow"
                   />
                 </div>
               </div>
-              
+
               {/* Accent Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("accentColor")}</label>
+                  <label className="text-sm font-medium">
+                    {t("accentColor")}
+                  </label>
                   <div className="flex items-center gap-1">
                     <Tooltip content={t("generateShades")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => generateShades(currentModeSettings.accentColor, 'accent')}
+                        onPress={() =>
+                          generateShades(
+                            currentModeSettings.accentColor,
+                            "accent"
+                          )
+                        }
                       >
                         <Droplet size={16} />
                       </Button>
                     </Tooltip>
-                    <Tooltip content={copiedColor === currentModeSettings.accentColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.accentColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.accentColor)}
+                        onPress={() =>
+                          copyColorToClipboard(currentModeSettings.accentColor)
+                        }
                       >
-                        {copiedColor === currentModeSettings.accentColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.accentColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
@@ -307,17 +392,28 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.accentColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.accentColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'accentColor' ? pickerColor : currentModeSettings.accentColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "accentColor"
+                              ? pickerColor
+                              : currentModeSettings.accentColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.accentColor, 'accentColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.accentColor,
+                              "accentColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -325,13 +421,13 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.accentColor}
-                    onChange={(e) => handleInputColorChange(e, 'accentColor')}
+                    onChange={(e) => handleInputColorChange(e, "accentColor")}
                     className="flex-grow"
                   />
                 </div>
               </div>
             </div>
-            
+
             {/* Color Shades */}
             <Accordion>
               <AccordionItem
@@ -341,18 +437,21 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 startContent={<Palette size={18} />}
               >
                 <div className="grid grid-cols-5 gap-2">
-                  {currentModeSettings.primaryShades && Object.entries(currentModeSettings.primaryShades).map(([shade, color]) => (
-                    <div key={shade} className="flex flex-col items-center">
-                      <div 
-                        className="w-10 h-10 rounded-md mb-1"
-                        style={{ backgroundColor: color }}
-                      ></div>
-                      <span className="text-xs">{shade}</span>
-                    </div>
-                  ))}
+                  {currentModeSettings.primaryShades &&
+                    Object.entries(currentModeSettings.primaryShades).map(
+                      ([shade, color]) => (
+                        <div key={shade} className="flex flex-col items-center">
+                          <div
+                            className="w-10 h-10 rounded-md mb-1"
+                            style={{ backgroundColor: color }}
+                          ></div>
+                          <span className="text-xs">{shade}</span>
+                        </div>
+                      )
+                    )}
                 </div>
               </AccordionItem>
-              
+
               <AccordionItem
                 key="secondary-shades"
                 aria-label="Secondary Color Shades"
@@ -360,18 +459,21 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 startContent={<Palette size={18} />}
               >
                 <div className="grid grid-cols-5 gap-2">
-                  {currentModeSettings.secondaryShades && Object.entries(currentModeSettings.secondaryShades).map(([shade, color]) => (
-                    <div key={shade} className="flex flex-col items-center">
-                      <div 
-                        className="w-10 h-10 rounded-md mb-1"
-                        style={{ backgroundColor: color }}
-                      ></div>
-                      <span className="text-xs">{shade}</span>
-                    </div>
-                  ))}
+                  {currentModeSettings.secondaryShades &&
+                    Object.entries(currentModeSettings.secondaryShades).map(
+                      ([shade, color]) => (
+                        <div key={shade} className="flex flex-col items-center">
+                          <div
+                            className="w-10 h-10 rounded-md mb-1"
+                            style={{ backgroundColor: color }}
+                          ></div>
+                          <span className="text-xs">{shade}</span>
+                        </div>
+                      )
+                    )}
                 </div>
               </AccordionItem>
-              
+
               <AccordionItem
                 key="accent-shades"
                 aria-label="Accent Color Shades"
@@ -379,63 +481,95 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 startContent={<Palette size={18} />}
               >
                 <div className="grid grid-cols-5 gap-2">
-                  {currentModeSettings.accentShades && Object.entries(currentModeSettings.accentShades).map(([shade, color]) => (
-                    <div key={shade} className="flex flex-col items-center">
-                      <div 
-                        className="w-10 h-10 rounded-md mb-1"
-                        style={{ backgroundColor: color }}
-                      ></div>
-                      <span className="text-xs">{shade}</span>
-                    </div>
-                  ))}
+                  {currentModeSettings.accentShades &&
+                    Object.entries(currentModeSettings.accentShades).map(
+                      ([shade, color]) => (
+                        <div key={shade} className="flex flex-col items-center">
+                          <div
+                            className="w-10 h-10 rounded-md mb-1"
+                            style={{ backgroundColor: color }}
+                          ></div>
+                          <span className="text-xs">{shade}</span>
+                        </div>
+                      )
+                    )}
                 </div>
               </AccordionItem>
             </Accordion>
           </CardBody>
         </Card>
-        
+
         {/* Background & Text Colors */}
         <Card>
           <CardBody className="space-y-4">
             <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">{t("backgroundTextColors")}</h3>
+              <h3 className="text-lg font-semibold">
+                {t("backgroundTextColors")}
+              </h3>
               <Tooltip content={t("backgroundTextColorsInfo")}>
                 <Button isIconOnly size="sm" variant="light">
                   <Info size={16} />
                 </Button>
               </Tooltip>
             </div>
-            
+
             <div className="space-y-4">
               {/* Background Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("backgroundColor")}</label>
-                  <Tooltip content={copiedColor === currentModeSettings.backgroundColor ? t("copied") : t("copyColor")}>
-                    <Button 
-                      isIconOnly 
-                      size="sm" 
+                  <label className="text-sm font-medium">
+                    {t("backgroundColor")}
+                  </label>
+                  <Tooltip
+                    content={
+                      copiedColor === currentModeSettings.backgroundColor
+                        ? t("copied")
+                        : t("copyColor")
+                    }
+                  >
+                    <Button
+                      isIconOnly
+                      size="sm"
                       variant="light"
-                      onPress={() => copyColorToClipboard(currentModeSettings.backgroundColor)}
+                      onPress={() =>
+                        copyColorToClipboard(
+                          currentModeSettings.backgroundColor
+                        )
+                      }
                     >
-                      {copiedColor === currentModeSettings.backgroundColor ? <Check size={16} /> : <Copy size={16} />}
+                      {copiedColor === currentModeSettings.backgroundColor ? (
+                        <Check size={16} />
+                      ) : (
+                        <Copy size={16} />
+                      )}
                     </Button>
                   </Tooltip>
                 </div>
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.backgroundColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.backgroundColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'backgroundColor' ? pickerColor : currentModeSettings.backgroundColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "backgroundColor"
+                              ? pickerColor
+                              : currentModeSettings.backgroundColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.backgroundColor, 'backgroundColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.backgroundColor,
+                              "backgroundColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -443,41 +577,68 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.backgroundColor}
-                    onChange={(e) => handleInputColorChange(e, 'backgroundColor')}
+                    onChange={(e) =>
+                      handleInputColorChange(e, "backgroundColor")
+                    }
                     className="flex-grow"
                   />
                 </div>
               </div>
-              
+
               {/* Surface Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("surfaceColor")}</label>
-                  <Tooltip content={copiedColor === currentModeSettings.surfaceColor ? t("copied") : t("copyColor")}>
-                    <Button 
-                      isIconOnly 
-                      size="sm" 
+                  <label className="text-sm font-medium">
+                    {t("surfaceColor")}
+                  </label>
+                  <Tooltip
+                    content={
+                      copiedColor === currentModeSettings.surfaceColor
+                        ? t("copied")
+                        : t("copyColor")
+                    }
+                  >
+                    <Button
+                      isIconOnly
+                      size="sm"
                       variant="light"
-                      onPress={() => copyColorToClipboard(currentModeSettings.surfaceColor)}
+                      onPress={() =>
+                        copyColorToClipboard(currentModeSettings.surfaceColor)
+                      }
                     >
-                      {copiedColor === currentModeSettings.surfaceColor ? <Check size={16} /> : <Copy size={16} />}
+                      {copiedColor === currentModeSettings.surfaceColor ? (
+                        <Check size={16} />
+                      ) : (
+                        <Copy size={16} />
+                      )}
                     </Button>
                   </Tooltip>
                 </div>
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.surfaceColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.surfaceColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'surfaceColor' ? pickerColor : currentModeSettings.surfaceColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "surfaceColor"
+                              ? pickerColor
+                              : currentModeSettings.surfaceColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.surfaceColor, 'surfaceColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.surfaceColor,
+                              "surfaceColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -485,41 +646,66 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.surfaceColor}
-                    onChange={(e) => handleInputColorChange(e, 'surfaceColor')}
+                    onChange={(e) => handleInputColorChange(e, "surfaceColor")}
                     className="flex-grow"
                   />
                 </div>
               </div>
-              
+
               {/* Text Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("textColor")}</label>
-                  <Tooltip content={copiedColor === currentModeSettings.textColor ? t("copied") : t("copyColor")}>
-                    <Button 
-                      isIconOnly 
-                      size="sm" 
+                  <label className="text-sm font-medium">
+                    {t("textColor")}
+                  </label>
+                  <Tooltip
+                    content={
+                      copiedColor === currentModeSettings.textColor
+                        ? t("copied")
+                        : t("copyColor")
+                    }
+                  >
+                    <Button
+                      isIconOnly
+                      size="sm"
                       variant="light"
-                      onPress={() => copyColorToClipboard(currentModeSettings.textColor)}
+                      onPress={() =>
+                        copyColorToClipboard(currentModeSettings.textColor)
+                      }
                     >
-                      {copiedColor === currentModeSettings.textColor ? <Check size={16} /> : <Copy size={16} />}
+                      {copiedColor === currentModeSettings.textColor ? (
+                        <Check size={16} />
+                      ) : (
+                        <Copy size={16} />
+                      )}
                     </Button>
                   </Tooltip>
                 </div>
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.textColor }}
+                        style={{
+                          backgroundColor: currentModeSettings.textColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'textColor' ? pickerColor : currentModeSettings.textColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "textColor"
+                              ? pickerColor
+                              : currentModeSettings.textColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.textColor, 'textColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.textColor,
+                              "textColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -527,41 +713,70 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.textColor}
-                    onChange={(e) => handleInputColorChange(e, 'textColor')}
+                    onChange={(e) => handleInputColorChange(e, "textColor")}
                     className="flex-grow"
                   />
                 </div>
               </div>
-              
+
               {/* Secondary Text Color */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">{t("secondaryTextColor")}</label>
-                  <Tooltip content={copiedColor === currentModeSettings.secondaryTextColor ? t("copied") : t("copyColor")}>
-                    <Button 
-                      isIconOnly 
-                      size="sm" 
+                  <label className="text-sm font-medium">
+                    {t("secondaryTextColor")}
+                  </label>
+                  <Tooltip
+                    content={
+                      copiedColor === currentModeSettings.secondaryTextColor
+                        ? t("copied")
+                        : t("copyColor")
+                    }
+                  >
+                    <Button
+                      isIconOnly
+                      size="sm"
                       variant="light"
-                      onPress={() => copyColorToClipboard(currentModeSettings.secondaryTextColor)}
+                      onPress={() =>
+                        copyColorToClipboard(
+                          currentModeSettings.secondaryTextColor
+                        )
+                      }
                     >
-                      {copiedColor === currentModeSettings.secondaryTextColor ? <Check size={16} /> : <Copy size={16} />}
+                      {copiedColor ===
+                      currentModeSettings.secondaryTextColor ? (
+                        <Check size={16} />
+                      ) : (
+                        <Copy size={16} />
+                      )}
                     </Button>
                   </Tooltip>
                 </div>
                 <div className="flex gap-2">
                   <Popover placement="bottom">
                     <PopoverTrigger>
-                      <Button 
+                      <Button
                         className="min-w-[40px] h-[40px] p-0"
-                        style={{ backgroundColor: currentModeSettings.secondaryTextColor }}
+                        style={{
+                          backgroundColor:
+                            currentModeSettings.secondaryTextColor,
+                        }}
                       />
                     </PopoverTrigger>
                     <PopoverContent>
                       <div className="p-2">
-                        <HexColorPicker 
-                          color={pickerTarget === 'secondaryTextColor' ? pickerColor : currentModeSettings.secondaryTextColor} 
+                        <HexColorPicker
+                          color={
+                            pickerTarget === "secondaryTextColor"
+                              ? pickerColor
+                              : currentModeSettings.secondaryTextColor
+                          }
                           onChange={(color) => handlePickerChange(color)}
-                          onMouseDown={() => openColorPicker(currentModeSettings.secondaryTextColor, 'secondaryTextColor')}
+                          onMouseDown={() =>
+                            openColorPicker(
+                              currentModeSettings.secondaryTextColor,
+                              "secondaryTextColor"
+                            )
+                          }
                         />
                       </div>
                     </PopoverContent>
@@ -569,47 +784,76 @@ const ColorSettings = ({ settings, updateSettings }) => {
                   <Input
                     type="text"
                     value={currentModeSettings.secondaryTextColor}
-                    onChange={(e) => handleInputColorChange(e, 'secondaryTextColor')}
+                    onChange={(e) =>
+                      handleInputColorChange(e, "secondaryTextColor")
+                    }
                     className="flex-grow"
                   />
                 </div>
               </div>
             </div>
-            
+
             {/* UI Element Colors */}
             <div className="pt-4">
-              <h4 className="text-md font-medium mb-3">{t("uiElementColors")}</h4>
-              
+              <h4 className="text-md font-medium mb-3">
+                {t("uiElementColors")}
+              </h4>
+
               <div className="space-y-4">
                 {/* Border Color */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium">{t("borderColor")}</label>
-                    <Tooltip content={copiedColor === currentModeSettings.borderColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <label className="text-sm font-medium">
+                      {t("borderColor")}
+                    </label>
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.borderColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.borderColor)}
+                        onPress={() =>
+                          copyColorToClipboard(currentModeSettings.borderColor)
+                        }
                       >
-                        {copiedColor === currentModeSettings.borderColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.borderColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
                   <div className="flex gap-2">
                     <Popover placement="bottom">
                       <PopoverTrigger>
-                        <Button 
+                        <Button
                           className="min-w-[40px] h-[40px] p-0"
-                          style={{ backgroundColor: currentModeSettings.borderColor }}
+                          style={{
+                            backgroundColor: currentModeSettings.borderColor,
+                          }}
                         />
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="p-2">
-                          <HexColorPicker 
-                            color={pickerTarget === 'borderColor' ? pickerColor : currentModeSettings.borderColor} 
+                          <HexColorPicker
+                            color={
+                              pickerTarget === "borderColor"
+                                ? pickerColor
+                                : currentModeSettings.borderColor
+                            }
                             onChange={(color) => handlePickerChange(color)}
-                            onMouseDown={() => openColorPicker(currentModeSettings.borderColor, 'borderColor')}
+                            onMouseDown={() =>
+                              openColorPicker(
+                                currentModeSettings.borderColor,
+                                "borderColor"
+                              )
+                            }
                           />
                         </div>
                       </PopoverContent>
@@ -617,41 +861,66 @@ const ColorSettings = ({ settings, updateSettings }) => {
                     <Input
                       type="text"
                       value={currentModeSettings.borderColor}
-                      onChange={(e) => handleInputColorChange(e, 'borderColor')}
+                      onChange={(e) => handleInputColorChange(e, "borderColor")}
                       className="flex-grow"
                     />
                   </div>
                 </div>
-                
+
                 {/* Divider Color */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium">{t("dividerColor")}</label>
-                    <Tooltip content={copiedColor === currentModeSettings.dividerColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <label className="text-sm font-medium">
+                      {t("dividerColor")}
+                    </label>
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.dividerColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.dividerColor)}
+                        onPress={() =>
+                          copyColorToClipboard(currentModeSettings.dividerColor)
+                        }
                       >
-                        {copiedColor === currentModeSettings.dividerColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.dividerColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
                   <div className="flex gap-2">
                     <Popover placement="bottom">
                       <PopoverTrigger>
-                        <Button 
+                        <Button
                           className="min-w-[40px] h-[40px] p-0"
-                          style={{ backgroundColor: currentModeSettings.dividerColor }}
+                          style={{
+                            backgroundColor: currentModeSettings.dividerColor,
+                          }}
                         />
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="p-2">
-                          <HexColorPicker 
-                            color={pickerTarget === 'dividerColor' ? pickerColor : currentModeSettings.dividerColor} 
+                          <HexColorPicker
+                            color={
+                              pickerTarget === "dividerColor"
+                                ? pickerColor
+                                : currentModeSettings.dividerColor
+                            }
                             onChange={(color) => handlePickerChange(color)}
-                            onMouseDown={() => openColorPicker(currentModeSettings.dividerColor, 'dividerColor')}
+                            onMouseDown={() =>
+                              openColorPicker(
+                                currentModeSettings.dividerColor,
+                                "dividerColor"
+                              )
+                            }
                           />
                         </div>
                       </PopoverContent>
@@ -659,41 +928,70 @@ const ColorSettings = ({ settings, updateSettings }) => {
                     <Input
                       type="text"
                       value={currentModeSettings.dividerColor}
-                      onChange={(e) => handleInputColorChange(e, 'dividerColor')}
+                      onChange={(e) =>
+                        handleInputColorChange(e, "dividerColor")
+                      }
                       className="flex-grow"
                     />
                   </div>
                 </div>
-                
+
                 {/* Focus Ring Color */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <label className="text-sm font-medium">{t("focusRingColor")}</label>
-                    <Tooltip content={copiedColor === currentModeSettings.focusRingColor ? t("copied") : t("copyColor")}>
-                      <Button 
-                        isIconOnly 
-                        size="sm" 
+                    <label className="text-sm font-medium">
+                      {t("focusRingColor")}
+                    </label>
+                    <Tooltip
+                      content={
+                        copiedColor === currentModeSettings.focusRingColor
+                          ? t("copied")
+                          : t("copyColor")
+                      }
+                    >
+                      <Button
+                        isIconOnly
+                        size="sm"
                         variant="light"
-                        onPress={() => copyColorToClipboard(currentModeSettings.focusRingColor)}
+                        onPress={() =>
+                          copyColorToClipboard(
+                            currentModeSettings.focusRingColor
+                          )
+                        }
                       >
-                        {copiedColor === currentModeSettings.focusRingColor ? <Check size={16} /> : <Copy size={16} />}
+                        {copiedColor === currentModeSettings.focusRingColor ? (
+                          <Check size={16} />
+                        ) : (
+                          <Copy size={16} />
+                        )}
                       </Button>
                     </Tooltip>
                   </div>
                   <div className="flex gap-2">
                     <Popover placement="bottom">
                       <PopoverTrigger>
-                        <Button 
+                        <Button
                           className="min-w-[40px] h-[40px] p-0"
-                          style={{ backgroundColor: currentModeSettings.focusRingColor }}
+                          style={{
+                            backgroundColor: currentModeSettings.focusRingColor,
+                          }}
                         />
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="p-2">
-                          <HexColorPicker 
-                            color={pickerTarget === 'focusRingColor' ? pickerColor : currentModeSettings.focusRingColor} 
+                          <HexColorPicker
+                            color={
+                              pickerTarget === "focusRingColor"
+                                ? pickerColor
+                                : currentModeSettings.focusRingColor
+                            }
                             onChange={(color) => handlePickerChange(color)}
-                            onMouseDown={() => openColorPicker(currentModeSettings.focusRingColor, 'focusRingColor')}
+                            onMouseDown={() =>
+                              openColorPicker(
+                                currentModeSettings.focusRingColor,
+                                "focusRingColor"
+                              )
+                            }
                           />
                         </div>
                       </PopoverContent>
@@ -701,7 +999,9 @@ const ColorSettings = ({ settings, updateSettings }) => {
                     <Input
                       type="text"
                       value={currentModeSettings.focusRingColor}
-                      onChange={(e) => handleInputColorChange(e, 'focusRingColor')}
+                      onChange={(e) =>
+                        handleInputColorChange(e, "focusRingColor")
+                      }
                       className="flex-grow"
                     />
                   </div>
@@ -711,7 +1011,7 @@ const ColorSettings = ({ settings, updateSettings }) => {
           </CardBody>
         </Card>
       </div>
-      
+
       {/* Status Colors */}
       <Card>
         <CardBody className="space-y-4">
@@ -723,37 +1023,62 @@ const ColorSettings = ({ settings, updateSettings }) => {
               </Button>
             </Tooltip>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {/* Success Color */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="text-sm font-medium">{t("successColor")}</label>
-                <Tooltip content={copiedColor === currentModeSettings.successColor ? t("copied") : t("copyColor")}>
-                  <Button 
-                    isIconOnly 
-                    size="sm" 
+                <label className="text-sm font-medium">
+                  {t("successColor")}
+                </label>
+                <Tooltip
+                  content={
+                    copiedColor === currentModeSettings.successColor
+                      ? t("copied")
+                      : t("copyColor")
+                  }
+                >
+                  <Button
+                    isIconOnly
+                    size="sm"
                     variant="light"
-                    onPress={() => copyColorToClipboard(currentModeSettings.successColor)}
+                    onPress={() =>
+                      copyColorToClipboard(currentModeSettings.successColor)
+                    }
                   >
-                    {copiedColor === currentModeSettings.successColor ? <Check size={16} /> : <Copy size={16} />}
+                    {copiedColor === currentModeSettings.successColor ? (
+                      <Check size={16} />
+                    ) : (
+                      <Copy size={16} />
+                    )}
                   </Button>
                 </Tooltip>
               </div>
               <div className="flex gap-2">
                 <Popover placement="bottom">
                   <PopoverTrigger>
-                    <Button 
+                    <Button
                       className="min-w-[40px] h-[40px] p-0"
-                      style={{ backgroundColor: currentModeSettings.successColor }}
+                      style={{
+                        backgroundColor: currentModeSettings.successColor,
+                      }}
                     />
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="p-2">
-                      <HexColorPicker 
-                        color={pickerTarget === 'successColor' ? pickerColor : currentModeSettings.successColor} 
+                      <HexColorPicker
+                        color={
+                          pickerTarget === "successColor"
+                            ? pickerColor
+                            : currentModeSettings.successColor
+                        }
                         onChange={(color) => handlePickerChange(color)}
-                        onMouseDown={() => openColorPicker(currentModeSettings.successColor, 'successColor')}
+                        onMouseDown={() =>
+                          openColorPicker(
+                            currentModeSettings.successColor,
+                            "successColor"
+                          )
+                        }
                       />
                     </div>
                   </PopoverContent>
@@ -761,41 +1086,66 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <Input
                   type="text"
                   value={currentModeSettings.successColor}
-                  onChange={(e) => handleInputColorChange(e, 'successColor')}
+                  onChange={(e) => handleInputColorChange(e, "successColor")}
                   className="flex-grow"
                 />
               </div>
             </div>
-            
+
             {/* Warning Color */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="text-sm font-medium">{t("warningColor")}</label>
-                <Tooltip content={copiedColor === currentModeSettings.warningColor ? t("copied") : t("copyColor")}>
-                  <Button 
-                    isIconOnly 
-                    size="sm" 
+                <label className="text-sm font-medium">
+                  {t("warningColor")}
+                </label>
+                <Tooltip
+                  content={
+                    copiedColor === currentModeSettings.warningColor
+                      ? t("copied")
+                      : t("copyColor")
+                  }
+                >
+                  <Button
+                    isIconOnly
+                    size="sm"
                     variant="light"
-                    onPress={() => copyColorToClipboard(currentModeSettings.warningColor)}
+                    onPress={() =>
+                      copyColorToClipboard(currentModeSettings.warningColor)
+                    }
                   >
-                    {copiedColor === currentModeSettings.warningColor ? <Check size={16} /> : <Copy size={16} />}
+                    {copiedColor === currentModeSettings.warningColor ? (
+                      <Check size={16} />
+                    ) : (
+                      <Copy size={16} />
+                    )}
                   </Button>
                 </Tooltip>
               </div>
               <div className="flex gap-2">
                 <Popover placement="bottom">
                   <PopoverTrigger>
-                    <Button 
+                    <Button
                       className="min-w-[40px] h-[40px] p-0"
-                      style={{ backgroundColor: currentModeSettings.warningColor }}
+                      style={{
+                        backgroundColor: currentModeSettings.warningColor,
+                      }}
                     />
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="p-2">
-                      <HexColorPicker 
-                        color={pickerTarget === 'warningColor' ? pickerColor : currentModeSettings.warningColor} 
+                      <HexColorPicker
+                        color={
+                          pickerTarget === "warningColor"
+                            ? pickerColor
+                            : currentModeSettings.warningColor
+                        }
                         onChange={(color) => handlePickerChange(color)}
-                        onMouseDown={() => openColorPicker(currentModeSettings.warningColor, 'warningColor')}
+                        onMouseDown={() =>
+                          openColorPicker(
+                            currentModeSettings.warningColor,
+                            "warningColor"
+                          )
+                        }
                       />
                     </div>
                   </PopoverContent>
@@ -803,41 +1153,64 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <Input
                   type="text"
                   value={currentModeSettings.warningColor}
-                  onChange={(e) => handleInputColorChange(e, 'warningColor')}
+                  onChange={(e) => handleInputColorChange(e, "warningColor")}
                   className="flex-grow"
                 />
               </div>
             </div>
-            
+
             {/* Error Color */}
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium">{t("errorColor")}</label>
-                <Tooltip content={copiedColor === currentModeSettings.errorColor ? t("copied") : t("copyColor")}>
-                  <Button 
-                    isIconOnly 
-                    size="sm" 
+                <Tooltip
+                  content={
+                    copiedColor === currentModeSettings.errorColor
+                      ? t("copied")
+                      : t("copyColor")
+                  }
+                >
+                  <Button
+                    isIconOnly
+                    size="sm"
                     variant="light"
-                    onPress={() => copyColorToClipboard(currentModeSettings.errorColor)}
+                    onPress={() =>
+                      copyColorToClipboard(currentModeSettings.errorColor)
+                    }
                   >
-                    {copiedColor === currentModeSettings.errorColor ? <Check size={16} /> : <Copy size={16} />}
+                    {copiedColor === currentModeSettings.errorColor ? (
+                      <Check size={16} />
+                    ) : (
+                      <Copy size={16} />
+                    )}
                   </Button>
                 </Tooltip>
               </div>
               <div className="flex gap-2">
                 <Popover placement="bottom">
                   <PopoverTrigger>
-                    <Button 
+                    <Button
                       className="min-w-[40px] h-[40px] p-0"
-                      style={{ backgroundColor: currentModeSettings.errorColor }}
+                      style={{
+                        backgroundColor: currentModeSettings.errorColor,
+                      }}
                     />
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="p-2">
-                      <HexColorPicker 
-                        color={pickerTarget === 'errorColor' ? pickerColor : currentModeSettings.errorColor} 
+                      <HexColorPicker
+                        color={
+                          pickerTarget === "errorColor"
+                            ? pickerColor
+                            : currentModeSettings.errorColor
+                        }
                         onChange={(color) => handlePickerChange(color)}
-                        onMouseDown={() => openColorPicker(currentModeSettings.errorColor, 'errorColor')}
+                        onMouseDown={() =>
+                          openColorPicker(
+                            currentModeSettings.errorColor,
+                            "errorColor"
+                          )
+                        }
                       />
                     </div>
                   </PopoverContent>
@@ -845,41 +1218,62 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <Input
                   type="text"
                   value={currentModeSettings.errorColor}
-                  onChange={(e) => handleInputColorChange(e, 'errorColor')}
+                  onChange={(e) => handleInputColorChange(e, "errorColor")}
                   className="flex-grow"
                 />
               </div>
             </div>
-            
+
             {/* Info Color */}
             <div>
               <div className="flex justify-between items-center mb-2">
                 <label className="text-sm font-medium">{t("infoColor")}</label>
-                <Tooltip content={copiedColor === currentModeSettings.infoColor ? t("copied") : t("copyColor")}>
-                  <Button 
-                    isIconOnly 
-                    size="sm" 
+                <Tooltip
+                  content={
+                    copiedColor === currentModeSettings.infoColor
+                      ? t("copied")
+                      : t("copyColor")
+                  }
+                >
+                  <Button
+                    isIconOnly
+                    size="sm"
                     variant="light"
-                    onPress={() => copyColorToClipboard(currentModeSettings.infoColor)}
+                    onPress={() =>
+                      copyColorToClipboard(currentModeSettings.infoColor)
+                    }
                   >
-                    {copiedColor === currentModeSettings.infoColor ? <Check size={16} /> : <Copy size={16} />}
+                    {copiedColor === currentModeSettings.infoColor ? (
+                      <Check size={16} />
+                    ) : (
+                      <Copy size={16} />
+                    )}
                   </Button>
                 </Tooltip>
               </div>
               <div className="flex gap-2">
                 <Popover placement="bottom">
                   <PopoverTrigger>
-                    <Button 
+                    <Button
                       className="min-w-[40px] h-[40px] p-0"
                       style={{ backgroundColor: currentModeSettings.infoColor }}
                     />
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="p-2">
-                      <HexColorPicker 
-                        color={pickerTarget === 'infoColor' ? pickerColor : currentModeSettings.infoColor} 
+                      <HexColorPicker
+                        color={
+                          pickerTarget === "infoColor"
+                            ? pickerColor
+                            : currentModeSettings.infoColor
+                        }
                         onChange={(color) => handlePickerChange(color)}
-                        onMouseDown={() => openColorPicker(currentModeSettings.infoColor, 'infoColor')}
+                        onMouseDown={() =>
+                          openColorPicker(
+                            currentModeSettings.infoColor,
+                            "infoColor"
+                          )
+                        }
                       />
                     </div>
                   </PopoverContent>
@@ -887,7 +1281,7 @@ const ColorSettings = ({ settings, updateSettings }) => {
                 <Input
                   type="text"
                   value={currentModeSettings.infoColor}
-                  onChange={(e) => handleInputColorChange(e, 'infoColor')}
+                  onChange={(e) => handleInputColorChange(e, "infoColor")}
                   className="flex-grow"
                 />
               </div>
@@ -895,56 +1289,74 @@ const ColorSettings = ({ settings, updateSettings }) => {
           </div>
         </CardBody>
       </Card>
-      
+
       {/* Theme Mode Settings */}
       <Card>
         <CardBody className="space-y-4">
           <h3 className="text-lg font-semibold">{t("themeModeSettings")}</h3>
-          
+
           <div className="flex flex-col gap-4">
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("enableDarkMode")}</p>
-                <p className="text-sm text-default-500">{t("enableDarkModeDescription")}</p>
+                <p className="text-sm text-default-500">
+                  {t("enableDarkModeDescription")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.enableDarkMode} 
-                onValueChange={(value) => updateSettings({ enableDarkMode: value })}
+              <Switch
+                isSelected={settings.enableDarkMode}
+                onValueChange={(value) =>
+                  updateSettings({ enableDarkMode: value })
+                }
               />
             </div>
-            
+
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("respectSystemPreference")}</p>
-                <p className="text-sm text-default-500">{t("respectSystemPreferenceDescription")}</p>
+                <p className="text-sm text-default-500">
+                  {t("respectSystemPreferenceDescription")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.respectSystemPreference} 
-                onValueChange={(value) => updateSettings({ respectSystemPreference: value })}
+              <Switch
+                isSelected={settings.respectSystemPreference}
+                onValueChange={(value) =>
+                  updateSettings({ respectSystemPreference: value })
+                }
                 isDisabled={!settings.enableDarkMode}
               />
             </div>
-            
+
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("defaultToDarkMode")}</p>
-                <p className="text-sm text-default-500">{t("defaultToDarkModeDescription")}</p>
+                <p className="text-sm text-default-500">
+                  {t("defaultToDarkModeDescription")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.defaultToDarkMode} 
-                onValueChange={(value) => updateSettings({ defaultToDarkMode: value })}
-                isDisabled={!settings.enableDarkMode || settings.respectSystemPreference}
+              <Switch
+                isSelected={settings.defaultToDarkMode}
+                onValueChange={(value) =>
+                  updateSettings({ defaultToDarkMode: value })
+                }
+                isDisabled={
+                  !settings.enableDarkMode || settings.respectSystemPreference
+                }
               />
             </div>
-            
+
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-medium">{t("allowUserToggle")}</p>
-                <p className="text-sm text-default-500">{t("allowUserToggleDescription")}</p>
+                <p className="text-sm text-default-500">
+                  {t("allowUserToggleDescription")}
+                </p>
               </div>
-              <Switch 
-                isSelected={settings.allowUserToggle} 
-                onValueChange={(value) => updateSettings({ allowUserToggle: value })}
+              <Switch
+                isSelected={settings.allowUserToggle}
+                onValueChange={(value) =>
+                  updateSettings({ allowUserToggle: value })
+                }
                 isDisabled={!settings.enableDarkMode}
               />
             </div>

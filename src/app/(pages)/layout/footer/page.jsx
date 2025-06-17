@@ -209,39 +209,6 @@ const FooterSettingsPage = () => {
             {t("browseMoreTemplates")}
           </Button>
         </div>
-
-        <div className="bg-content1 p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-4">{t("legalSettings")}</h3>
-          <div className="space-y-4">
-            <div className="border border-divider rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Copyright size={18} className="text-default-500" />
-                <h4 className="text-md font-medium">
-                  {t("copyrightSettings")}
-                </h4>
-              </div>
-              <p className="text-sm text-default-600 mb-3">
-                {t("copyrightDescription")}
-              </p>
-              <Button size="sm" color="primary" variant="flat">
-                {t("configureCopyright")}
-              </Button>
-            </div>
-
-            <div className="border border-divider rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <LinkIcon size={18} className="text-default-500" />
-                <h4 className="text-md font-medium">{t("legalLinks")}</h4>
-              </div>
-              <p className="text-sm text-default-600 mb-3">
-                {t("legalLinksDescription")}
-              </p>
-              <Button size="sm" color="primary" variant="flat">
-                {t("manageLegalLinks")}
-              </Button>
-            </div>
-          </div>
-        </div>
       </motion.div>
     </motion.div>
   );

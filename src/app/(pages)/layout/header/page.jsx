@@ -8,7 +8,6 @@ import { Save, Eye, Undo, Navigation, Image, Type, Link as LinkIcon } from "luci
 import HeaderPreview from "@/components/header/HeaderPreview";
 import LogoSettings from "@/components/header/LogoSettings";
 import NavigationSettings from "@/components/header/NavigationSettings";
-import StyleSettings from "@/components/header/StyleSettings";
 import useHeaderSettings from "./useHeaderSettings";
 
 const HeaderSettingsPage = () => {
@@ -144,15 +143,7 @@ const HeaderSettingsPage = () => {
               </div>
             }
           />
-          <Tab
-            key="style"
-            title={
-              <div className="flex items-center gap-2">
-                <Type size={18} />
-                <span>{t("tabs.style")}</span>
-              </div>
-            }
-          />
+      
         </Tabs>
       </motion.div>
 
@@ -166,12 +157,6 @@ const HeaderSettingsPage = () => {
         )}
         {activeTab === "navigation" && (
           <NavigationSettings 
-            settings={headerSettings} 
-            updateSettings={updateHeaderSettings} 
-          />
-        )}
-        {activeTab === "style" && (
-          <StyleSettings 
             settings={headerSettings} 
             updateSettings={updateHeaderSettings} 
           />

@@ -243,70 +243,7 @@ const ThemeSettingsPage = () => {
         )}
       </motion.div>
 
-      {/* Theme Presets */}
-      <motion.div variants={itemVariants}>
-        <h3 className="text-xl font-semibold mb-4">{t("themePresets")}</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {themeSettings.presets.map((preset) => (
-            <Card
-              key={preset.id}
-              isPressable
-              onPress={() => updateThemeSettings({ activePreset: preset.id })}
-              className={`border-2 ${
-                themeSettings.activePreset === preset.id
-                  ? "border-primary"
-                  : "border-transparent"
-              }`}
-            >
-              <CardBody className="p-3">
-                <div className="flex flex-col items-center">
-                  <div className="w-full h-24 rounded-lg mb-2 overflow-hidden">
-                    <div
-                      className="w-full h-1/2"
-                      style={{ backgroundColor: preset.primaryColor }}
-                    ></div>
-                    <div className="w-full h-1/2 flex">
-                      <div
-                        className="w-1/3 h-full"
-                        style={{ backgroundColor: preset.secondaryColor }}
-                      ></div>
-                      <div
-                        className="w-1/3 h-full"
-                        style={{ backgroundColor: preset.backgroundColor }}
-                      ></div>
-                      <div
-                        className="w-1/3 h-full"
-                        style={{ backgroundColor: preset.accentColor }}
-                      ></div>
-                    </div>
-                  </div>
-                  <p className="text-sm font-medium">{preset.name}</p>
-                  <div className="flex mt-2 gap-1">
-                    {preset.tags.map((tag) => (
-                      <Chip key={tag} size="sm" variant="flat">
-                        {tag}
-                      </Chip>
-                    ))}
-                  </div>
-                </div>
-              </CardBody>
-            </Card>
-          ))}
 
-          {/* Create Custom Preset */}
-          <Card
-            isPressable
-            onPress={() => updateThemeSettings({ showCreatePreset: true })}
-          >
-            <CardBody className="p-3 flex flex-col items-center justify-center h-full">
-              <div className="w-12 h-12 rounded-full bg-default-100 flex items-center justify-center mb-2">
-                <Plus size={24} className="text-default-500" />
-              </div>
-              <p className="text-sm font-medium">{t("createCustomPreset")}</p>
-            </CardBody>
-          </Card>
-        </div>
-      </motion.div>
     </motion.div>
   );
 };
