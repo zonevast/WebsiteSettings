@@ -11,7 +11,6 @@ import {
   Layout,
   Columns,
   Link as LinkIcon,
-  Copyright,
   Share2,
 } from "lucide-react";
 import FooterPreview from "@/components/footer/FooterPreview";
