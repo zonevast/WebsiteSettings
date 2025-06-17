@@ -32,7 +32,6 @@ import {
   EyeOff
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/components/animations";
 import ColorPicker from "@/components/homePage/ColorPicker";
 
 const ContactSettingsPage = () => {
