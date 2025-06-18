@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import ColorPicker from "@/components/homePage/ColorPicker";
+import { containerVariants, itemVariants } from "@/components/animations";
 
 const ContactSettingsPage = () => {
   const t = useTranslations("ContactSettings");

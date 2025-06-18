@@ -1,46 +1,24 @@
-// templatesInstalled.js
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Button,
-  Divider,
-  Chip,
-  Tooltip,
-  Select,
-  SelectItem,
-  Input,
-} from "@nextui-org/react";
-import {
-  FileText,
-  Trash2,
-  Edit,
-  Eye,
-  EyeOff,
-  Sliders,
-  Search,
-  Download,
-  CheckCircle2,
-  XCircle,
-} from "lucide-react";
+import { Card, CardBody, Select, SelectItem, Input } from "@nextui-org/react";
+import { Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/components/animations";
 import { mockInstalledTemplates } from "./data";
-
+import InstalledTemplateCard from "@/components/TemplatesInstalled/InstalledTemplateCard";
 
 const TemplatesInstalled = () => {
-  const t = useTranslations("TemplatesInstalled");
+  const t = useTranslations("TemplatesInstalledPage");
   const [installedTemplates, setInstalledTemplates] = useState(
     mockInstalledTemplates
-  ); // Local state for installed templates
+  );
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("all"); // "all", "active", "inactive", "updating", "error"
-  const [sortOption, setSortOption] = useState("name"); // Default sort by name
-  const [showPreview, setShowPreview] = useState(false); // Preview state
-  const [selectedTemplate, setSelectedTemplate] = useState(null); // Currently selected template for preview
-  const [isLoading, setIsLoading] = useState(false); // Loading state for actions
+  const [filterStatus, setFilterStatus] = useState("all");
+  const [sortOption, setSortOption] = useState("name");
+  const [showPreview, setShowPreview] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -55,7 +33,7 @@ const TemplatesInstalled = () => {
   };
 
   const filteredTemplates = React.useMemo(() => {
-    let results = [...installedTemplates]; // Use a copy
+    let results = [...installedTemplates];
 
     // Search Filter
     if (searchTerm) {
@@ -76,7 +54,6 @@ const TemplatesInstalled = () => {
     if (sortOption === "name") {
       results.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "dateInstalled") {
-      // In a real app, you'd need a 'dateInstalled' property in your data
       results.sort((a, b) => 0); // Placeholder: sort by date
     }
 
@@ -91,8 +68,7 @@ const TemplatesInstalled = () => {
   const handleActivate = async (templateId) => {
     setIsLoading(true);
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate 1 second loading
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const updatedTemplates = installedTemplates.map((template) => {
         if (template.id === templateId) {
           return { ...template, status: "active" };
@@ -110,33 +86,31 @@ const TemplatesInstalled = () => {
   };
 
   const handleDeactivate = async (templateId) => {
-      setIsLoading(true);
-      try {
-          // Simulate API call
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          const updatedTemplates = installedTemplates.map((template) => {
-              if (template.id === templateId) {
-                  return { ...template, status: 'inactive' };
-              }
-              return template;
-          });
-          setInstalledTemplates(updatedTemplates);
-          alert(t("templateDeactivatedSuccess"));
-      } catch (error) {
-          console.error("Error deactivating template:", error);
-          alert(t("templateDeactivateError"));
-      } finally {
-          setIsLoading(false);
-      }
+    setIsLoading(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const updatedTemplates = installedTemplates.map((template) => {
+        if (template.id === templateId) {
+          return { ...template, status: "inactive" };
+        }
+        return template;
+      });
+      setInstalledTemplates(updatedTemplates);
+      alert(t("templateDeactivatedSuccess"));
+    } catch (error) {
+      console.error("Error deactivating template:", error);
+      alert(t("templateDeactivateError"));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleUninstall = async (templateId) => {
     if (!confirm(t("uninstallConfirmation"))) {
-      return; // User cancelled the action
+      return;
     }
     setIsLoading(true);
     try {
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       const updatedTemplates = installedTemplates.filter(
         (template) => template.id !== templateId
@@ -151,31 +125,32 @@ const TemplatesInstalled = () => {
     }
   };
 
-  const previewVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } },
-  };
-
   return (
-    <div className="w-full max-w-full">
-      <div className="flex flex-col gap-4">
-        <div className="flex justify-between items-center">
-          <h3 className="text-xl font-semibold">{t("title")}</h3>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="w-full max-w-full space-y-6 p-6"
+    >
+      {/* Header Section */}
+      <motion.div
+        variants={itemVariants}
+        className="flex justify-between items-center"
+      >
+        <div>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            {t("title")}
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            {t("manageTemplatesDescription")}
+          </p>
         </div>
+      </motion.div>
 
+      {/* Main Content */}
+      <motion.div variants={itemVariants} className="flex flex-col gap-4">
         <Card className="w-full">
-          <CardHeader className="flex gap-2">
-            <div className="flex flex-col">
-              <p className="text-md">{t("manageTemplates")}</p>
-              <p className="text-small text-default-500">
-                {t("manageTemplatesDescription")}
-              </p>
-            </div>
-          </CardHeader>
-
-          <Divider />
-
           <CardBody>
             <div className="space-y-4">
               {/* Search and Filters */}
@@ -234,98 +209,18 @@ const TemplatesInstalled = () => {
               {/* Template List */}
               <div className="space-y-3">
                 {filteredTemplates.map((template) => (
-                  <motion.div
+                  <InstalledTemplateCard
                     key={template.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Card className="p-3 flex flex-col md:flex-row items-center gap-4">
-                      <img
-                        src={template.imageUrl}
-                        alt={template.name}
-                        className="w-full md:w-40 h-24 object-cover rounded-lg"
-                      />
-                      <div className="flex-1 space-y-2">
-                        <h4 className="text-md font-semibold">{template.name}</h4>
-                        <p className="text-sm text-default-500 line-clamp-2">
-                          {template.description}
-                        </p>
-                        <div className="flex flex-wrap gap-1">
-                          {template.tags.map((tag) => (
-                            <Chip
-                              key={`${template.id}-${tag}`}
-                              size="sm"
-                              variant="light"
-                            >
-                              {tag}
-                            </Chip>
-                          ))}
-                        </div>
-                        {template.status === "error" && (
-                          <Chip color="danger" variant="shadow">
-                            {t("error")}
-                          </Chip>
-                        )}
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        {/* Status-based actions and visual indicators */}
-                        {template.status === "active" ? (
-                          <Button
-                            color="default"
-                            size="sm"
-                            isLoading={isLoading}
-                            onPress={() => handleDeactivate(template.id)}
-                          >
-                            <XCircle size={18} className="mr-1" />
-                            {t("deactivate")}
-                          </Button>
-                        ) : template.status === "inactive" ? (
-                          <Button
-                            color="primary"
-                            size="sm"
-                            isLoading={isLoading}
-                            onPress={() => handleActivate(template.id)}
-                          >
-                            <CheckCircle2 size={18} className="mr-1" />
-                            {t("activate")}
-                          </Button>
-                        ) : template.status === "updating" ? (
-                          <Chip color="warning" variant="shadow">
-                            {t("updating")}
-                          </Chip>
-                        ) : template.status === "error" ? (
-                          <Chip color="danger" variant="shadow">
-                            {t("error")}
-                          </Chip>
-                        ) : null}
-                        <div className="flex gap-2">
-                          <Button
-                            isIconOnly
-                            size="sm"
-                            variant="light"
-                            onPress={() => togglePreview(template)}
-                            aria-label={t("preview")}
-                          >
-                            {showPreview && selectedTemplate?.id === template.id ? (
-                              <EyeOff size={18} />
-                            ) : (
-                              <Eye size={18} />
-                            )}
-                          </Button>
-                          <Button
-                            color="danger"
-                            size="sm"
-                            isLoading={isLoading}
-                            startContent={<Trash2 size={18} />}
-                            onPress={() => handleUninstall(template.id)}
-                          >
-                            {t("uninstall")}
-                          </Button>
-                        </div>
-                      </div>
-                    </Card>
-                  </motion.div>
+                    template={template}
+                    t={t}
+                    isLoading={isLoading}
+                    handleDeactivate={handleDeactivate}
+                    handleActivate={handleActivate}
+                    handleUninstall={handleUninstall}
+                    togglePreview={togglePreview}
+                    showPreview={showPreview}
+                    selectedTemplate={selectedTemplate}
+                  />
                 ))}
 
                 {filteredTemplates.length === 0 && (
@@ -335,69 +230,8 @@ const TemplatesInstalled = () => {
             </div>
           </CardBody>
         </Card>
-      </div>
-
-      {/* Template Preview Modal */}
-      <motion.div
-        className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ${
-          showPreview ? "" : "hidden"
-        }`}
-        variants={previewVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <motion.div className="bg-white rounded-lg p-6 max-w-4xl w-full overflow-auto">
-          <Card>
-            <CardHeader className="flex justify-between items-center">
-              <h3 className="text-xl font-semibold">
-                {selectedTemplate?.name}
-              </h3>
-              <Button
-                isIconOnly
-                variant="light"
-                aria-label={t("closePreview")}
-                onClick={togglePreview}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </Button>
-            </CardHeader>
-            <Divider />
-            <CardBody>
-              {/*  Template Preview Content (replace with actual template preview) */}
-              <img
-                src={selectedTemplate?.imageUrl}
-                alt={selectedTemplate?.name}
-                className="w-full rounded-lg mb-4"
-              />
-              <p className="text-sm text-default-500 mb-4">
-                {selectedTemplate?.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedTemplate?.tags.map((tag) => (
-                  <Chip key={tag} size="sm" variant="light">
-                    {tag}
-                  </Chip>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-        </motion.div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
